@@ -262,7 +262,7 @@
         }
 
         hr {
-            margin-top: 20px;
+            margin-top: 100px;
             margin-left: -30px;
             margin-right: -30px;
             margin-bottom: 20px;
@@ -454,6 +454,10 @@
             align-items: flex-start;
         }
 
+        /* ////////////////////
+         NASA RIGHT SIDE NG EDU
+        //////////////////// */
+
         .fc {
             display: flex;
             flex-direction: column;
@@ -462,7 +466,7 @@
         }
 
         .first {
-            margin-top: 200px;
+            margin-top: 100px;
             background-color: var(--nav);
             border-left: 8px solid var(--bogart);
             border-radius: 15px;
@@ -473,6 +477,7 @@
             flex-direction: column;
             gap: 12px;
             position: relative;
+            opacity: 0;
         }
 
         .first b {
@@ -506,6 +511,238 @@
             transform: scale(0.25);
             transform-origin: top left;
         }
+
+        .fc span:nth-child(2) {
+            display: flex;
+            justify-content: center;
+            font-family: cursive;
+            font-weight: bold;
+            font-size: 200px;
+        }
+
+        .present {
+            margin-top: 80px;
+            background-color: var(--nav);
+            border-left: 8px solid var(--bogart);
+            border-radius: 15px;
+            padding: 25px 30px;
+            box-shadow: 0 4px 12px var(--bs);
+            font-family: "JetBrains Mono", monospace;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+            opacity: 0;
+        }
+
+        .present b {
+            font-size: 20px;
+        }
+
+        .present span {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .present small {
+            font-size: 15px;
+        }   
+
+        .presentproj {
+            width: 480px;
+            height: 270px;
+            overflow: hidden;
+            border: 2px solid var(--bogart);
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .presentproj iframe{
+            width: 1920px;
+            height: 1080px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scale(0.25);
+            transform-origin: top left;
+        }
+
+        .first.show,
+        .present.show {
+            animation: maangas 1s ease forwards;
+        }
+
+        /* ////////////////////
+               TECH STACK
+        //////////////////// */
+
+        #tsangkol {
+            opacity: 0;
+            height: 100px;
+        }
+
+        #ts {
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .techstack > strong {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 40px;
+        }
+
+        .tg {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tech {
+            background-color: var(--nav);
+            border-left: 8px solid var(--bogart);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 12px var(--bs);
+            transition: transform 0.8s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .tech i {
+            font-size: 35px;
+        }
+
+        .tech b {
+            font-size: 20px;
+        }
+
+        .tech span {
+            font-size: 14px;
+        }
+
+        .techstack h2 {
+            font-size: 22px;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+
+        /* ////////////////////
+              PROJECTS
+        //////////////////// */
+
+        .projects {
+            margin-top: 100px;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .projects > strong {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 40px;
+        }
+
+        .pg {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project {
+            margin-top: 30px;
+            background-color: var(--nav);
+            border-left: 8px solid var(--bogart);
+            border-radius: 15px;
+            padding: 25px 30px;
+            box-shadow: 0 4px 12px var(--bs);
+            font-family: "JetBrains Mono", monospace;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pp {
+            width: 480px;
+            height: 270px;
+            overflow: hidden;
+            border: 2px solid var(--bogart);
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .pp iframe {
+            width: 1920px;
+            height: 1080px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: none;
+            transform: scale(0.25);
+            transform-origin: top left;
+        }
+
+        .project b {
+            font-size: 20px;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .project span {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .project a {
+            width: fit-content;
+            padding: 12px 12px 16px;
+            border: 2px solid var(--bogart);
+            border-radius: 8px;
+            color: var(--text);
+            text-decoration: none;
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+
+        .project a:hover {
+            background-color: var(--pindutanHAHAHA);
+            color: var(--hl);
+        }
+
+        .project a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 160px;
+            height: 40px;
+            box-sizing: border-box;
+            border: 2px solid var(--hl);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--bogart);
+        }
+
+        .project a b {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        #cd {
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        #cd.show {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .details-box.show {
+            opacity: 1;
+        }
+
+
+
+        
     </style>
 </head>
 <body>
@@ -603,7 +840,7 @@
 
             <div class="pfp">
                 <div class="pfp2"></div>
-                <img src="./image.png" alt="Profile picture">
+                <img src="./image.png" alt="ay d nagana? bakit?">
             </div>
 
     </section>
@@ -675,17 +912,258 @@
                 </div>
 
                 <span>↓</span>
+                <div class="present">
+                    
+                <div class="presentproj">
+                    <iframe src="https://ryanj19.github.io/portfolio/portfolio.html" frameborder="0"></iframe>
+                </div>
+
+                    <b>• Project Portfolio</b>
+                    <span>Present</span>
+                    <small>August 2026</small>
+                </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <hr>
+
+<section id="ts">
+    <div id="tsangkol">a</div>
+    <div class="techstack">
+        <strong>
+            <i class="fa-solid fa-layer-group"></i>
+            TECH STACK
+        </strong>
+
+        <h2>LANGUAGES</h2>
+
+        <div class="tg">
+
+            <div class="tech">
+                <i class="fa-brands fa-html5"></i>
+                <b>HTML</b>
+                <span>Web Structure</span>
             </div>
 
-        </section>
+            <div class="tech">
+                <i class="fa-brands fa-css3-alt"></i>
+                <b>CSS</b>
+                <span>Styling & Design</span>
+            </div>
 
-        <section id="ts">
+            <div class="tech">
+                <i class="fa-brands fa-js"></i>
+                <b>JavaScript</b>
+                <span>Web Interactivity</span>
+            </div>
 
-        </section>
+            <div class="tech">
+                <i class="fa-brands fa-python"></i>
+                <b>Python</b>
+                <span>Programming</span>
+            </div>
 
-        <section id="p">
+        </div>
 
-        </section>
+        <h2>TOOLS</h2>
+
+        <div class="tg">
+
+            <div class="tech">
+                <i class="fa-brands fa-github"></i>
+                <b>GitHub</b>
+                <span>Version Control & Projects</span>
+            </div>
+
+            <div class="tech">
+                <i class="fa-solid fa-code"></i>
+                <b>VS Code</b>
+                <span>Code Editor</span>
+            </div>
+
+        </div>
+
+        <h2>RESOURCES</h2>
+
+        <div class="tg">
+
+            <div class="tech">
+                <i class="fa-solid fa-icons"></i>
+                <b>Font Awesome</b>
+                <span>Icons & Web Graphics</span>
+            </div>
+
+            <div class="tech">
+                <i class="fa-solid fa-font"></i>
+                <b>Google Fonts</b>
+                <span>Web Fonts & Typography</span>
+            </div>
+
+            <div class="tech">
+                <i class="fa-solid fa-image"></i>
+                <b>Flaticon</b>
+                <span>Icons & Graphics</span>
+            </div>
+        </div>
+        <h2>SKILLS</h2>
+
+        <div class="tg">
+
+            <div class="tech">
+                <i class="fa-solid fa-palette"></i>
+                <b>UI/UX Design</b>
+                <span>Designing User Interfaces</span>
+            </div>
+
+            <div class="tech">
+                <i class="fa-solid fa-laptop-code"></i>
+                <b>Front-End Development</b>
+                <span>Building Websites</span>
+            </div>
+
+            <div class="tech">
+                <i class="fa-solid fa-lightbulb"></i>
+                <b>Problem Solving</b>
+                <span>Logical Thinking & Debugging</span>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<hr>
+
+<!-- PROJECTS -->
+<section id="p">
+
+    <div class="projects">
+
+        <strong>
+            <i class="fa-solid fa-code"></i>
+            PROJECTS
+        </strong>
+
+        <div class="pg">
+
+            <div class="project">
+
+                <div class="pp">
+                    <iframe
+                        src="https://ryanj19.github.io/cnb/cnb.html"
+                        frameborder="0">
+                    </iframe>
+                </div>
+
+                <b>Cupcake ni Bogart</b>
+
+                <span>
+                    My first web development project
+                </span>
+
+                <div class="project-buttons">
+
+                    <a href="javascript:void(0)" onclick="showDetails('Cupcake ni Bogart', 'My first project')">
+                        <b><i class="fa-solid fa-eye"></i> View Details</b>
+                    </a>
+
+                    <a href="https://github.com/ryanj19/cnb/blob/main/cnb.html" target="_blank">
+                        <b><i class="fa-solid fa-code"></i> View Code</b>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="project">
+
+                <div class="pp">
+                    <iframe
+                        src="https://ryanj19.github.io/fries/fries.html"
+                        frameborder="0">
+                    </iframe>
+                </div>
+
+                <b>Lyric Website</b>
+
+                <span>
+                    A website for photos with a background of lyrics
+                </span>
+
+                <div class="project-buttons">
+
+                    <a href="javascript:void(0)" onclick="showDetails('Cupcake ni Bogart', 'My first project')">
+                        <b><i class="fa-solid fa-eye"></i> View Details</b>
+                    </a>
+
+                    <a href="https://github.com/ryanj19/cnb/blob/main/cnb.html" target="_blank">
+                        <b><i class="fa-solid fa-code"></i> View Code</b>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="project">
+
+                <div class="pp">
+                    <iframe
+                        src="https://ryanj19.github.io/portfolio/portfolio.html"
+                        frameborder="0">
+                    </iframe>
+                </div>
+
+                <b>Personal Portfolio</b>
+
+                <span>
+                    My personal portfolio website
+                </span>
+
+                <div class="project-buttons">
+
+                    <a href="javascript:void(0)" onclick="showDetails('Cupcake ni Bogart', 'My first project')">
+                        <b><i class="fa-solid fa-eye"></i> View Details</b>
+                    </a>
+
+                    <a href="https://github.com/ryanj19/cnb/blob/main/cnb.html" target="_blank">
+                        <b><i class="fa-solid fa-code"></i> View Code</b>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECT DETAILS POPUP -->
+<div id="details-box" class="details-box">
+
+    <div class="details-content">
+
+        <button
+            id="cd"
+            onclick="closeDetails()">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+        <h2 id="details-title"></h2>
+
+        <p id="details-description"></p>
+
+    </div>
+
+</div>
+
+
+
 
         <section id="a">
 
@@ -708,116 +1186,157 @@
 
         // PANG GALAW NG NASA TAAS
 
-const navItems = document.querySelectorAll(".nav-item");
-const activeBg = document.getElementById("active-bg");
+        const navItems = document.querySelectorAll(".nav-item");
+        const activeBg = document.getElementById("active-bg");
 
-function moveActive(item) {
-    activeBg.style.left = (item.offsetLeft - 14) + "px";
-    activeBg.style.width = item.offsetWidth + "px";
+        function moveActive(item) {
+            activeBg.style.left = (item.offsetLeft - 14) + "px";
+            activeBg.style.width = item.offsetWidth + "px";
 
-    navItems.forEach(nav => nav.classList.remove("active"));
+            navItems.forEach(nav => nav.classList.remove("active"));
 
-    item.classList.add("active");
-}
+            item.classList.add("active");
+        }
 
-const sections = document.querySelectorAll("section");
+        const sections = document.querySelectorAll("section");
 
-navItems.forEach(item => {
-    item.addEventListener("click", () => {
+        navItems.forEach(item => {
+            item.addEventListener("click", () => {
 
-        if (item.dataset.section === "home") {
+                if (item.dataset.section === "home") {
 
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                } else {
+
+                    const section = document.getElementById(item.dataset.section);
+
+                    section.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                }
+
+                moveActive(item);
+            });
+        });
+
+        moveActive(navItems[0]); 
+
+        window.addEventListener("scroll", () => {
+
+            let current = "home";
+
+            sections.forEach(section => {
+
+                const sectionTop = section.offsetTop - 200;
+
+                if (window.scrollY >= sectionTop) {
+                    current = section.id;
+                }
+
             });
 
-        } else {
+            const activeItem = document.querySelector(
+                `.nav-item[data-section="${current}"]`
+            );
 
-            const section = document.getElementById(item.dataset.section);
+            if (activeItem) {
+                moveActive(activeItem);
+            }
 
-            section.scrollIntoView({
-                behavior: "smooth"
+        });
+
+        window.addEventListener("scroll", function() {
+
+            const nav = document.querySelector("nav");
+
+            if (window.scrollY > 100) {
+                nav.classList.add("scrolled");
+            } else {
+                nav.classList.remove("scrolled");
+            }
+
+        });
+
+        // PAGNAGSCROLL MAGAANIMATION
+
+        const aaItems = document.querySelectorAll(".aa > ul > li, .first, .present");
+
+        const aaObserver = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+
             });
 
+        }, {
+            threshold: 0.2
+        });
+
+        aaItems.forEach(item => {
+            aaObserver.observe(item);
+        });
+
+        const hello = document.getElementById("hello");
+        const text = " HELLO!";
+        let i = 0;
+
+        function typing() {
+            if (i < text.length) {
+                hello.textContent += text[i];
+                i++;
+                setTimeout(typing, 150);
+            }
         }
 
-        moveActive(item);
-    });
-});
+        typing();
 
-moveActive(navItems[0]); // FIXED
 
-window.addEventListener("scroll", () => {
+        // ANG GULO NG TECH STACKS BIGLA HAHAHAHAHHA
 
-    let current = "home";
+        const techItems = document.querySelectorAll(".tech");
+        const ts = document.getElementById("ts");
 
-    sections.forEach(section => {
+        window.addEventListener("scroll", () => {
+            const distance = ts.offsetTop - window.scrollY;
 
-        const sectionTop = section.offsetTop - 200;
+            if (distance > 0 && distance < 700) {
 
-        if (window.scrollY >= sectionTop) {
-            current = section.id;
+                techItems.forEach((item, index) => {
+                    const move = distance * 0.3;
+
+                    item.style.transform =
+                        `translate(${Math.sin(window.scrollY / 300 + index) * 3000}px, ${move}px)`;
+                });
+
+            } else if (distance <= 0) {
+
+                techItems.forEach(item => {
+                    item.style.transform = "translate(0, 0)";
+                });
+
+            }
+        });
+
+        function showDetails(title, description) {
+            document.getElementById("details-title").textContent = title;
+            document.getElementById("details-description").textContent = description;
+
+            document.getElementById("cd").classList.add("show");
+            document.getElementById("details-box").classList.add("show");
         }
 
-    });
-
-    const activeItem = document.querySelector(
-        `.nav-item[data-section="${current}"]`
-    );
-
-    if (activeItem) {
-        moveActive(activeItem);
-    }
-
-});
-
-window.addEventListener("scroll", function() {
-
-    const nav = document.querySelector("nav");
-
-    if (window.scrollY > 100) {
-        nav.classList.add("scrolled");
-    } else {
-        nav.classList.remove("scrolled");
-    }
-
-});
-
-const aaItems = document.querySelectorAll(".aa > ul > li");
-
-const aaObserver = new IntersectionObserver((entries) => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
+        function closeDetails() {
+            document.getElementById("details-box").classList.remove("show");
+            document.getElementById("cd").classList.remove("show");
         }
-
-    });
-
-}, {
-    threshold: 0.2
-});
-
-aaItems.forEach(item => {
-    aaObserver.observe(item);
-});
-
-const hello = document.getElementById("hello");
-const text = " HELLO!";
-let i = 0;
-
-function typing() {
-    if (i < text.length) {
-        hello.textContent += text[i];
-        i++;
-        setTimeout(typing, 150);
-    }
-}
-
-typing();
-
     </script>
 </body>
 </html>
