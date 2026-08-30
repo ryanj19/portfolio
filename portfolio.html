@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗂️</text></svg>">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+
+    <title>Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: var(--background);
+            color: var(--text);
+            transition: 0.3s;
+            -webkit-user-drag: none;
+            user-select: none;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        /* AAAAAAAAA ANG LIWANAGG */
+
+        :root {
+            --bogart: #4a91dd;
+            --background: #d4d6d8;
+            --text: black;
+            --nav: #fcfc75;
+            --hover: #a7bfd8;
+            --bs: #b4b446;
+            --pindutanHAHAHA: #fafc9f; 
+            --pindutanulit: #77a5d6;
+            --hl: #2864a3;
+        }
+
+        /* DUMILIM ANG PALIGID */
+
+        body.dark {
+            --bogart: white;
+            --background: #111111;
+            --text: white;
+            --nav: #242424;
+            --hover: #424242;
+            --bs: #1c1c1c;
+            --pindutanHAHAHA: white;
+            --pindutanulit: black;
+            --hl: #111111;
+        }
+        
+        /* NASA PINAKATAAS */
+        
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: var(--nav);
+            padding: 25px;
+            box-shadow: 0 0 8px 3px var(--bs);
+        
+            transition:
+                transform 0.8s ease,
+                border-radius 0.8s ease,
+                box-shadow 0.8s ease;
+        }
+
+        nav.scrolled {
+            transform: scale(0.9);
+            border-radius: 50px;
+            box-shadow: 0 4px 20px 3px var(--bs);
+            top: -5px;
+        }
+        
+        .r {
+            position: relative;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: flex;
+            gap: 70px;
+            margin-right: 40px;
+            margin-top: -42px;
+            font-weight: 900;
+            font-size: 14px;
+            align-items: center;
+            float: right;
+            
+        }
+        
+        .nav-item {
+            z-index: 2;
+            padding: 16px;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        .nav-item.active {
+            color: var(--pindutanulit);
+        }
+
+        #active-bg {
+            position: absolute;
+            background-color: var(--pindutanHAHAHA);
+            border-radius: 10em;
+            box-shadow: 0 0 10px 1px #2423;
+            transition:
+                left 0.35s ease,
+                width 0.35s ease;
+            z-index: 1;
+            padding: 15px;
+            height: 30px;
+        }
+
+        .r i {
+            margin-right: 7px;
+        }
+
+        .r div {
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .r div:hover {
+            color: var(--hover);
+        }
+
+        /* SWITCH NG PAMPADILIM */
+
+        .switch {
+            position: relative;
+            display: flex;
+            width: 55px;
+            height: 30px;
+        }
+
+        .switch input {
+            display: none;
+        }
+
+        .slider {
+            position: absolute;
+            inset: 0;
+            background-color: #e7e9eb;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .slider::before {
+            content: "";
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            left: 3px;
+            top: 3px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.3s;
+            z-index: 1;
+        }
+
+        .slider i {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            top: 3px;
+            left: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            z-index: 2;
+            transition: 0.3s;
+        }
+
+        .sun {
+            opacity: 1;
+            color: #f5c542;
+        }
+
+        .moon {
+            opacity: 0;
+            color: #333;
+        }
+
+        input:checked + .slider {
+            background-color: #333;
+        }
+
+        input:checked + .slider::before {
+            transform: translateX(25px);
+        }
+
+        input:checked + .slider .sun {
+            transform: translateX(25px);
+            opacity: 0;
+        }
+
+        input:checked + .slider .moon {
+            transform: translateX(25px);
+            opacity: 1;
+        }
+
+        /* BOGART HAHAHAHAHA */
+
+        .l {
+            font-size: 30px;
+            font-weight: bolder;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: var(--bogart);
+            margin-left: 20px;
+        }
+
+        /* HOME PAGE */
+
+        #hello {
+            font-family: "Caveat Brush", cursive;
+            font-style: normal;
+            font-weight: 900;
+            font-size: 160px;
+            margin-bottom: -25px;
+            margin-top: 20px;
+        }
+
+        #hello::after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        #home p{
+            font-family: "JetBrains Mono", monospace;
+            font-size: 25px;
+            font-weight: 800;
+        }
+
+        #delay2 {
+            animation: eyy 1s forwards;
+            animation-delay: 1.5s;
+            opacity: 0;
+        }
+
+        #delay {
+            opacity: 0;
+            animation: eyy 1s forwards;
+            animation-delay: 2s;
+            margin-bottom: 10px;
+        }
+
+        main {
+            margin-left: 120px;
+            margin-right: 120px;
+        }
+
+        hr {
+            margin-top: 20px;
+            margin-left: -30px;
+            margin-right: -30px;
+            margin-bottom: 20px;
+        }
+
+        .hl {
+            display: flex;
+            margin-top: 70px;
+            animation: eyyy 0.5s ease-out forwards;
+            animation-delay: 1.7s;
+            opacity: 0;
+        }
+
+        .hl a {
+            padding: 30px;
+            width: 220px;
+            height: 100px;
+            border: 2px solid var(--bogart);
+            border-radius: 15px;
+            color: var(--bogart);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+            margin-right: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        .hl a i {
+            font-size: 20px;
+            margin-bottom: 10px;
+            margin-right: 7px;
+        }
+
+        .hl a span {
+            font-size: 17px;
+            font-weight: normal;
+            margin-top: 8px;
+        }
+
+        .hl a:hover {
+            color: var(--hl);
+            background-color: var(--pindutanHAHAHA);
+        }   
+
+        @keyframes eyyy {
+            from {
+                opacity: 0;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(-30px);
+            }
+        }
+
+        #home {
+            display: flex;
+            align-items: center;
+            gap: 70px;  
+        }
+
+        .pfp {
+            position: relative;
+            flex: 0 0 auto;
+            width: 700px;
+            animation: maangas 1s forwards;
+            animation-delay: 1s;
+            opacity: 0;
+        }
+        .pfp img {
+            position: relative;
+            width: 90%;
+            border-radius: 10px;
+            z-index: 1;
+        }
+
+        .pfp2 {
+            position: absolute;
+            background-color: var(--nav);
+            width: 90%;
+            height: 100%;
+            top: 20px;
+            left: 20px;
+            border-radius: 10px;
+            z-index: 0;
+        }
+
+        @keyframes eyy{
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(30px);
+            }
+        }
+
+        /* EDUCATION PAGE */
+
+        #edu {
+            font-family: "JetBrains Mono", monospace;
+            font-size: 24px;
+            font-weight: 600;
+            display: flex;
+        }
+
+        .aa {
+            margin-top: 100px;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .aa span {
+            font-size: 15px;
+        }
+
+        .aa strong {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        .aa ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .aa > ul > li {
+            background-color: var(--nav);
+            border-left: 8px solid var(--bogart);
+            border-radius: 15px;
+            padding: 25px 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px var(--bs);
+        }
+
+        .aa > ul > li > b {
+            font-size: 20px;
+        }
+
+        .aa ul ul {
+            margin-top: 15px;
+            line-height: 1.8;
+        }
+
+        .aa ul ul li {
+            font-size: 18px;
+        }
+
+        .aa > ul > li {
+            opacity: 0;
+        }
+
+        .aa > ul > li.show {
+            animation: maangas 1s ease forwards;
+        }
+
+        @keyframes maangas {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .aa > ul > li:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .aa > ul > li:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .aa > ul > li:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        #edu {
+            display: flex;
+            gap: 80px;
+            align-items: flex-start;
+        }
+
+        .fc {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            left: 300px;
+        }
+
+        .first {
+            margin-top: 200px;
+            background-color: var(--nav);
+            border-left: 8px solid var(--bogart);
+            border-radius: 15px;
+            padding: 25px 30px;
+            box-shadow: 0 4px 12px var(--bs);
+            font-family: "JetBrains Mono", monospace;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+        }
+
+        .first b {
+            font-size: 20px;
+        }
+
+        .first span {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .first small {
+            font-size: 15px;
+        }   
+
+        .firstproj {
+            width: 480px;
+            height: 270px;
+            overflow: hidden;
+            border: 2px solid var(--bogart);
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .firstproj iframe{
+            width: 1920px;
+            height: 1080px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scale(0.25);
+            transform-origin: top left;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="l">
+            Portfolio ni Bogart
+        </div>
+            <div class="r">
+
+        <div id="active-bg"></div>
+
+        <div class="nav-item" data-section="home">
+            <i class="fa-solid fa-house"></i>HOME
+        </div>
+
+        <div class="nav-item" data-section="edu">
+            <i class="fa-solid fa-graduation-cap"></i>EDUCATION
+        </div>
+
+        <div class="nav-item" data-section="ts">
+            <i class="fa-solid fa-layer-group"></i>TECH STACK
+        </div>
+
+        <div class="nav-item" data-section="p">
+            <i class="fa-solid fa-code"></i>PROJECTS
+        </div>
+
+        <div class="nav-item" data-section="a">
+            <i class="fa-solid fa-user"></i>ABOUT ME
+        </div>
+
+        <div class="nav-item" data-section="c">
+            <i class="fa-solid fa-envelope"></i>CONTACT ME
+        </div>
+
+        <div id="m">
+            <label class="switch">
+                <input type="checkbox" id="darkt">
+
+                <span class="slider">
+                    <i class="fa-solid fa-sun sun"></i>
+                    <i class="fa-solid fa-moon moon"></i>
+                </span>
+            </label>
+        </div>
+    </div>
+    </nav>
+
+        <!--HOME PAGE-->
+
+    <main>
+        
+    <section id="home">
+
+            <div class="hc">
+
+                <h1 id="hello"></h1>
+                <p id="typing"></p>
+                <p id="delay2">
+                    I'm Ryan Joshua D. Bianzon, a 16-year-old senior high school student in the Computer Programming strand at Parañaque National High School-Main. I specialize in front-end web development and UI/UX design where I enjoy creating websites that are both visually appealing and easy to use. I have a passion for coding, designing, and learning new technologies, and I continuously work on personal projects to improve my skills. My goal is to become a skilled full-stack developer and create useful, creative, and user-friendly digital experiences.
+                </p>
+
+                <p id="delay">
+                    Currently open to freelance opportunities, collaborations,
+                    and opportunities to work on meaningful projects.
+                </p>
+
+                <div class="hl">
+                    <a href="#projects">
+                        <div>
+                        <i class="fa-solid fa-laptop-code"></i>
+                        PROJECTS
+                        </div>
+                        <span>Click to view my projects</span>
+                </a>
+
+                    <a href="#contact">
+                        <div>
+                        <i class="fa-solid fa-envelope"></i>
+                        CONTACTS
+                        </div>
+                        <span>Click to view my Contacts</span>
+                </a>
+
+                    <a href="https://github.com/ryanj19" target="_blank">
+                        <div>
+                        <i class="fa-brands fa-github"></i>
+                        GITHUB
+                        </div>
+                        <span>Click to view my Github Profile</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="pfp">
+                <div class="pfp2"></div>
+                <img src="image.png" alt="Profile picture">
+            </div>
+
+    </section>
+
+    <hr>
+
+        <!--EDUCATION PAGE-->
+
+        <section id="edu">
+            <div class="aa">
+                <strong><i class="fa-solid fa-graduation-cap"></i>EDUCATION</strong>
+            <br>
+            <strong>ACADEMIC ACHIEVEMENTS</strong>
+            <ul>
+                <li>
+                    <b>GRADE 7 - WITH HONORS</b>
+                    <br>
+                    <span>Parañaque National High School-Main</span>
+                    <br>
+                    <span>S.Y 2022-2023</span>
+                    <ul>
+                        <li>Q1 - ACHIEVER</li>
+                        <li>Q2 - ACHIEVER</li>
+                        <li>Q3 - ACHIEVER</li>
+                        <li>Q3 - WITH HONORS</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <b>GRADE 9 - WITH HONORS</b>
+                    <br>
+                    <span>Parañaque National High School-Main</span>
+                    <br>
+                    <span>S.Y 2024-2025</span>
+                    <ul>
+                        <li>Q1 - ACHIEVER</li>
+                        <li>Q2 - WITH HONORS</li>
+                        <li>Q3 - WITH HONORS</li>
+                        <li>Q4 - WITH HIGH HONORS</li>
+                    </ul>
+                </li>
+
+                <li>
+                    <b>GRADE 10 - WITH HONORS</b>
+                    <br>
+                    <span>Parañaque National High School-Main</span>
+                    <br>
+                    <span>S.Y 2025-2026</span>
+                    <ul>
+                        <li>Q1 - ACHIEVER</li>
+                        <li>Q2 - WITH HONORS</li>
+                        <li>Q3 - WITH HONORS</li>
+                        <li>Q4 - WITH HONORS</li>
+                    </ul>
+                </li>
+            </ul>
+            </div>
+
+            <div class="fc">
+                <div class="first">
+
+                <div class="firstproj">
+                    <iframe src="https://ryanj19.github.io/cnb/cnb.html" frameborder="0"></iframe>
+                </div>
+
+                    <b>• "Hello, World!"</b>
+                    <span>My first line of code</span>
+                    <small>September 2025</small>
+                </div>
+
+                <span>↓</span>
+            </div>
+
+        </section>
+
+        <section id="ts">
+
+        </section>
+
+        <section id="p">
+
+        </section>
+
+        <section id="a">
+
+        </section>
+
+        <section id="c">
+
+        </section>
+
+    </main>
+    <script>
+
+        // PANG DARK MODE EYYY
+
+        const darkt = document.getElementById("darkt");
+
+        darkt.addEventListener("change", function() {
+            document.body.classList.toggle("dark", this.checked);
+        });
+
+        // PANG GALAW NG NASA TAAS
+
+const navItems = document.querySelectorAll(".nav-item");
+const activeBg = document.getElementById("active-bg");
+
+function moveActive(item) {
+    activeBg.style.left = (item.offsetLeft - 14) + "px";
+    activeBg.style.width = item.offsetWidth + "px";
+
+    navItems.forEach(nav => nav.classList.remove("active"));
+
+    item.classList.add("active");
+}
+
+const sections = document.querySelectorAll("section");
+
+navItems.forEach(item => {
+    item.addEventListener("click", () => {
+
+        if (item.dataset.section === "home") {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        } else {
+
+            const section = document.getElementById(item.dataset.section);
+
+            section.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+        moveActive(item);
+    });
+});
+
+moveActive(navItems[0]); // FIXED
+
+window.addEventListener("scroll", () => {
+
+    let current = "home";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 200;
+
+        if (window.scrollY >= sectionTop) {
+            current = section.id;
+        }
+
+    });
+
+    const activeItem = document.querySelector(
+        `.nav-item[data-section="${current}"]`
+    );
+
+    if (activeItem) {
+        moveActive(activeItem);
+    }
+
+});
+
+window.addEventListener("scroll", function() {
+
+    const nav = document.querySelector("nav");
+
+    if (window.scrollY > 100) {
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+
+});
+
+const aaItems = document.querySelectorAll(".aa > ul > li");
+
+const aaObserver = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+
+    });
+
+}, {
+    threshold: 0.2
+});
+
+aaItems.forEach(item => {
+    aaObserver.observe(item);
+});
+
+const hello = document.getElementById("hello");
+const text = " HELLO!";
+let i = 0;
+
+function typing() {
+    if (i < text.length) {
+        hello.textContent += text[i];
+        i++;
+        setTimeout(typing, 150);
+    }
+}
+
+typing();
+
+    </script>
+</body>
+</html>
