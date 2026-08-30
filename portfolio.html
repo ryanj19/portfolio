@@ -736,7 +736,7 @@
             cursor: pointer;
         }
 
-        .details-box.show {
+        .db.show {
             opacity: 1;
         }
 
@@ -1064,7 +1064,7 @@
 
                 <div class="project-buttons">
 
-                    <a href="javascript:void(0)" onclick="showDetails('Cupcake ni Bogart', 'My first project')">
+                    <a href="javascript:void(0)" onclick="showDetails()">
                         <b><i class="fa-solid fa-eye"></i> View Details</b>
                     </a>
 
@@ -1142,13 +1142,13 @@
 
 
 <!-- PROJECT DETAILS POPUP -->
-<div id="details-box" class="details-box">
+<div id="db" class="db">
 
-    <div class="details-content">
+    <div class="dc">
 
         <button
             id="cd"
-            onclick="closeDetails()">
+            onclick="cd()">
 
             <i class="fa-solid fa-xmark"></i>
 
@@ -1330,11 +1330,11 @@
             document.getElementById("details-description").textContent = description;
 
             document.getElementById("cd").classList.add("show");
-            document.getElementById("details-box").classList.add("show");
+            document.getElementById("db").classList.add("show");
         }
 
-        function closeDetails() {
-            document.getElementById("details-box").classList.remove("show");
+        function cd() {
+            document.getElementById("db").classList.remove("show");
             document.getElementById("cd").classList.remove("show");
         }
     </script>
