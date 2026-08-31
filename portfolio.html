@@ -9,19 +9,31 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 
     <title>Portfolio</title>
     <style>
+
+
         body {
             margin: 0;
             background-color: var(--background);
             color: var(--text);
-            transition: 0.3s;
+            transition: 0.5s;
             -webkit-user-drag: none;
             user-select: none;
             overflow-y: scroll;
             overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            background-color: var(--nav);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--bogart);
+            border-radius: 15px;
+            box-shadow: 0 0 10px 3px var(--bs); 
         }
 
         /* AAAAAAAAA ANG LIWANAGG */
@@ -36,6 +48,8 @@
             --pindutanHAHAHA: #fafc9f; 
             --pindutanulit: #77a5d6;
             --hl: #2864a3;
+            scroll-behavior: smooth;
+            --a: #fcfc87;
         }
 
         /* DUMILIM ANG PALIGID */
@@ -50,6 +64,7 @@
             --pindutanHAHAHA: white;
             --pindutanulit: black;
             --hl: #111111;
+            --a: white; 
         }
         
         /* NASA PINAKATAAS */
@@ -88,7 +103,7 @@
             font-size: 14px;
             align-items: center;
             float: right;
-            
+            flex-wrap: flex;
         }
         
         .nav-item {
@@ -262,7 +277,7 @@
         }
 
         hr {
-            margin-top: 100px;
+            margin-top: 50px;
             margin-left: -30px;
             margin-right: -30px;
             margin-bottom: 20px;
@@ -372,6 +387,8 @@
             font-size: 24px;
             font-weight: 600;
             display: flex;
+            align-items: flex-start;
+            gap: 80px;
         }
 
         .aa {
@@ -448,11 +465,7 @@
             animation-delay: 0.4s;
         }
 
-        #edu {
-            display: flex;
-            gap: 80px;
-            align-items: flex-start;
-        }
+
 
         /* ////////////////////
          NASA RIGHT SIDE NG EDU
@@ -576,7 +589,7 @@
                TECH STACK
         //////////////////// */
 
-        #tsangkol {
+        #angkol {
             opacity: 0;
             height: 100px;
         }
@@ -634,18 +647,21 @@
         .projects {
             margin-top: 100px;
             font-family: "JetBrains Mono", monospace;
+            opacity: 1;
         }
 
         .projects > strong {
             font-size: 36px;
             display: block;
             margin-bottom: 40px;
+            margin-top: -50px;
         }
 
         .pg {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+            align-items: stretch;
         }
 
         .project {
@@ -659,6 +675,27 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
+            opacity: 0;
+        }
+
+        .cp {
+            width: 120px;
+            height: 300px;
+            border: 2px solid var(--bogart);
+            border-radius: 10px;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            background: var(--nav);
+        }
+
+        .cp iframe {
+            width: 343px;
+            height: 857px;
+            border: none;
+            transform: scale(0.35);
+            transform-origin: top left;
+            display: block;
         }
 
         .pp {
@@ -668,6 +705,7 @@
             border: 2px solid var(--bogart);
             border-radius: 10px;
             position: relative;
+            transition: 0.4s ease;
         }
 
         .pp iframe {
@@ -681,26 +719,37 @@
             transform-origin: top left;
         }
 
+        .pp1 {
+            width: 480px;
+            height: 270px;
+            overflow: hidden;
+            border: 2px solid var(--bogart);
+            border-radius: 10px;
+            position: relative;
+            transition: 0.4s ease;
+        }
+
+        .pp1 iframe {
+            width: 1920px;
+            height: 1080px;
+            position: absolute;
+            top: 0;
+            left: -240px;
+            border: none;
+            transform: scale(0.50);
+            transform-origin: top left;
+        }
+
         .project b {
             font-size: 20px;
             display: block;
             margin-top: 5px;
+            font-family: "Orbitron", sans-serif;
         }
 
         .project span {
             font-size: 14px;
             margin-bottom: 10px;
-        }
-
-        .project a {
-            width: fit-content;
-            padding: 12px 12px 16px;
-            border: 2px solid var(--bogart);
-            border-radius: 8px;
-            color: var(--text);
-            text-decoration: none;
-            transition: 0.2s;
-            margin-top: 10px;
         }
 
         .project a:hover {
@@ -719,30 +768,409 @@
             border-radius: 8px;
             text-decoration: none;
             color: var(--bogart);
+            transition: 0.2s;
+        }
+
+        .pb {
+            margin-top: 0;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pb i {
+            margin-right: 5px;
         }
 
         .project a b {
             font-size: 14px;
             margin: 0;
         }
-
-        #cd {
-            opacity: 0;
-            transition: 0.3s;
+        
+        .lang {
+            display: flex;
+            gap: 15px;
+            margin-top: auto;
+            align-items: center;
         }
 
-        #cd.show {
-            opacity: 1;
+        .lang i {
+            font-size: 25px;
+            cursor: help;
+            transition: 0.2s;
+        }
+
+        .lang i:hover {
+            transform: scale(1.2);
+        }
+
+        .project.angat {
+            animation: eyyy 1s ease-in forwards;
+        }
+        
+        .project:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .project:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .project:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .project:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+        .project:nth-child(6) {
+            animation-delay: 1s;
+        }
+
+        .project:nth-child(7) {
+            animation-delay: 1.2s;
+        }
+
+        .project:nth-child(8) {
+            animation-delay: 1.4s;
+        }
+
+        .project:nth-child(9) {
+            animation-delay: 1.6s;
+        }
+
+        .project:nth-child(10) {
+            animation-delay: 2.2s;
+        }
+
+        .project:nth-child(11) {
+            animation-delay: 2.4s;
+        }
+
+        .project:nth-child(12) {
+            animation-delay: 2.6s;
+        }
+
+        /* ////////////////////
+            ABOUT ME
+        //////////////////// */
+
+        .a {
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .a strong,
+        .contact strong {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 40px;
+        }
+
+        .ac {
+            background-color: var(--nav);
+            border-left: 8px solid var(--bogart);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 12px var(--bs);
+            max-height: 600px;
+        }
+
+        .asd {
+            display: flex;
+            margin-top: 20px;
+            margin-right: 20px;
+            gap: 30px;
+        }
+
+        .asd  span{
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .asd p {
+            font-size: 17px;
+            margin-left: 40px;            
+        }
+
+        .woah {
+            font-size: 30px;
+            transition: 
+                    opacity 0.8s ease, 
+                    transform 0.8s ease;
+        }
+
+        .fa-circle-check {
+            display: inline-block;
+            position: relative;
+            color: #1dcaff;
+            top: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .fa-circle-check.show {
+            animation: eyyy 1s ease-out forwards;
+        }
+
+        .ac p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin: 0 0 20px;
+        }
+
+        #ryan::after {
+            content: "|";
+            animation: blink 1s infinite;
+        }
+
+        .ainfo {
+            margin-top: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+            color: var(--text);
+        }
+
+        .ainfo div {
+            padding: 20px;
+            border: 2px solid var(--bogart);
+            border-radius: 10px;
+        }
+
+        .ainfo b {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+
+        /* ////////////////////
+            CONTACT ME
+        //////////////////// */
+
+
+        .contact {
+            margin-bottom: 100px;
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        .contact > strong {
+            font-size: 36px;
+            display: block;
+            margin-bottom: 40px;
+        }
+
+        .s {
+            background-color: var(--nav);
+            border-left: 8px solid var(--bogart);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 12px var(--bs);
+            max-width: 600px;
+        }
+
+        .s h2 {
+            margin-top: 0;
+        }
+
+        .sm {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .sm a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            border: 2px solid var(--bogart);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            transition: 0.2s;
+        }
+
+        .sm a:hover {
+            background-color: var(--pindutanHAHAHA);
+            color: var(--hl);
+            transform: translateX(5px);
+        }
+
+        .sm a:active {
+            background-color: var(--pindutanHAHAHA);
+            color: var(--hl);
+            transform: translateX(5px);
+            transform: translateY(5px);
+        }
+
+        .sm i {
+            width: 25px;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .mbtn {
+            margin-top: 15px;
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--bogart);
+            border-radius: 10px;
+            background-color: transparent;
+            color: var(--bo);
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .mbtn:hover {
+            background-color: var(--pindutanHAHAHA);
+            color: var(--hl);
+            transform: scale(1.03);
+        }
+
+        .mbtn:active {
+            transform: scale(0.95);
+        }
+
+        .mhead {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background-color: var(--hl);
+            color: var(--a);
+            border-radius: 10px 10px 0 0;
+        }
+
+        .mhead b {
+            font-size: 16px;
+        }
+
+        .mhead i {
+            margin-right: 5px;
+        }
+
+        .cm {
+            color: var(--nav);
+            border: none;
+            background: transparent;
+            color: inherit;
+            font-size: 22px;
             cursor: pointer;
         }
 
-        .db.show {
-            opacity: 1;
+
+        .cform {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px;
         }
 
+        .cform label {
+            font-weight: bold;
+            margin-top: 5px;
+        }
 
+        .cform input,
+        .cform textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            border: 2px solid var(--bogart);
+            border-radius: 8px;
+            background-color: var(--background);
+            color: var(--text);
+            font-family: inherit;
+            outline: none;
+        }
 
-        
+        .cform textarea {
+            height: 120px;  
+        }
+
+        .cform button {
+            margin-top: 10px;
+            padding: 12px;
+            border: 2px solid var(--hl);
+            border-radius: 8px;
+            background-color: transparent;
+            color: var(--text);
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .cform button:hover {
+            background-color: var(--pindutanHAHAHA);
+            color: var(--hl);
+            transform: scale(1.03);
+        }
+
+        .cform button:active {
+            background-color: var(--pindutanHAHAHA);
+            color: var(--hover);
+            transform: scale(0.9);
+        }
+
+        .mb {
+            position: fixed;
+            right: 25px;
+            bottom: 0;
+            width: 350px;
+            background-color: var(--nav);
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 5px 25px var(--bs);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100%);
+            pointer-events: none;
+            transition:
+                opacity 0.5s ease,
+                transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                visibility 0.6s;
+        }
+
+        .mb.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .mb.tab {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(calc(100% - 55px));
+            pointer-events: auto;
+            cursor: pointer;
+        }
+
+        /* Animate the form instead of display:none */
+        .mb .cform {
+            opacity: 1;
+            max-height: 500px;
+            overflow: hidden;
+
+            transition:
+                opacity 0.3s ease,
+                max-height 0.5s ease,
+                padding 0.5s ease;
+        }
+
+        .mb.tab .cform {
+            opacity: 0;
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
     </style>
 </head>
 <body>
@@ -811,7 +1239,7 @@
                 </p>
 
                 <div class="hl">
-                    <a href="#projects">
+                    <a href="#p">
                         <div>
                         <i class="fa-solid fa-laptop-code"></i>
                         PROJECTS
@@ -819,7 +1247,7 @@
                         <span>Click to view my projects</span>
                 </a>
 
-                    <a href="#contact">
+                    <a href="#c">
                         <div>
                         <i class="fa-solid fa-envelope"></i>
                         CONTACTS
@@ -901,7 +1329,7 @@
 
             <div class="fc">
                 <div class="first">
-
+                    <strong><i class="fa-solid fa-code"></i> EXPERIENCE</strong>
                 <div class="firstproj">
                     <iframe src="https://ryanj19.github.io/cnb/cnb.html" frameborder="0"></iframe>
                 </div>
@@ -924,257 +1352,723 @@
                 </div>
                 </div>
             </div>
-            
+            <div id="angkol">a</div>
         </section>
 
         <hr>
 
-<section id="ts">
-    <div id="tsangkol">a</div>
-    <div class="techstack">
-        <strong>
-            <i class="fa-solid fa-layer-group"></i>
-            TECH STACK
-        </strong>
+        <!--TECH STACKS PAGE-->
 
-        <h2>LANGUAGES</h2>
+        <section id="ts">
+            <div id="angkol">a</div>
+            <div class="techstack">
+                <strong>
+                    <i class="fa-solid fa-layer-group"></i>
+                    TECH STACK
+                </strong>
 
-        <div class="tg">
+                <h2>LANGUAGES</h2>
 
-            <div class="tech">
-                <i class="fa-brands fa-html5"></i>
-                <b>HTML</b>
-                <span>Web Structure</span>
-            </div>
+                <div class="tg">
 
-            <div class="tech">
-                <i class="fa-brands fa-css3-alt"></i>
-                <b>CSS</b>
-                <span>Styling & Design</span>
-            </div>
+                    <div class="tech">
+                        <i class="fa-brands fa-html5"></i>
+                        <b>HTML</b>
+                        <span>Web Structure</span>
+                    </div>
 
-            <div class="tech">
-                <i class="fa-brands fa-js"></i>
-                <b>JavaScript</b>
-                <span>Web Interactivity</span>
-            </div>
+                    <div class="tech">
+                        <i class="fa-brands fa-css3-alt"></i>
+                        <b>CSS</b>
+                        <span>Styling & Design</span>
+                    </div>
 
-            <div class="tech">
-                <i class="fa-brands fa-python"></i>
-                <b>Python</b>
-                <span>Programming</span>
-            </div>
+                    <div class="tech">
+                        <i class="fa-brands fa-js"></i>
+                        <b>JavaScript</b>
+                        <span>Web Interactivity</span>
+                    </div>
 
-        </div>
-
-        <h2>TOOLS</h2>
-
-        <div class="tg">
-
-            <div class="tech">
-                <i class="fa-brands fa-github"></i>
-                <b>GitHub</b>
-                <span>Version Control & Projects</span>
-            </div>
-
-            <div class="tech">
-                <i class="fa-solid fa-code"></i>
-                <b>VS Code</b>
-                <span>Code Editor</span>
-            </div>
-
-        </div>
-
-        <h2>RESOURCES</h2>
-
-        <div class="tg">
-
-            <div class="tech">
-                <i class="fa-solid fa-icons"></i>
-                <b>Font Awesome</b>
-                <span>Icons & Web Graphics</span>
-            </div>
-
-            <div class="tech">
-                <i class="fa-solid fa-font"></i>
-                <b>Google Fonts</b>
-                <span>Web Fonts & Typography</span>
-            </div>
-
-            <div class="tech">
-                <i class="fa-solid fa-image"></i>
-                <b>Flaticon</b>
-                <span>Icons & Graphics</span>
-            </div>
-        </div>
-        <h2>SKILLS</h2>
-
-        <div class="tg">
-
-            <div class="tech">
-                <i class="fa-solid fa-palette"></i>
-                <b>UI/UX Design</b>
-                <span>Designing User Interfaces</span>
-            </div>
-
-            <div class="tech">
-                <i class="fa-solid fa-laptop-code"></i>
-                <b>Front-End Development</b>
-                <span>Building Websites</span>
-            </div>
-
-            <div class="tech">
-                <i class="fa-solid fa-lightbulb"></i>
-                <b>Problem Solving</b>
-                <span>Logical Thinking & Debugging</span>
-            </div>
-        </div>
-    </div>
-
-</section>
-
-<hr>
-
-<!-- PROJECTS -->
-<section id="p">
-
-    <div class="projects">
-
-        <strong>
-            <i class="fa-solid fa-code"></i>
-            PROJECTS
-        </strong>
-
-        <div class="pg">
-
-            <div class="project">
-
-                <div class="pp">
-                    <iframe
-                        src="https://ryanj19.github.io/cnb/cnb.html"
-                        frameborder="0">
-                    </iframe>
-                </div>
-
-                <b>Cupcake ni Bogart</b>
-
-                <span>
-                    My first web development project
-                </span>
-
-                <div class="project-buttons">
-
-                    <a href="javascript:void(0)" onclick="showDetails()">
-                        <b><i class="fa-solid fa-eye"></i> View Details</b>
-                    </a>
-
-                    <a href="https://github.com/ryanj19/cnb/blob/main/cnb.html" target="_blank">
-                        <b><i class="fa-solid fa-code"></i> View Code</b>
-                    </a>
+                    <div class="tech">
+                        <i class="fa-brands fa-python"></i>
+                        <b>Python</b>
+                        <span>Programming</span>
+                    </div>
 
                 </div>
 
+                <h2>TOOLS</h2>
+
+                <div class="tg">
+
+                    <div class="tech">
+                        <i class="fa-brands fa-github"></i>
+                        <b>GitHub</b>
+                        <span>Version Control & Projects</span>
+                    </div>
+
+                    <div class="tech">
+                        <i class="fa-solid fa-code"></i>
+                        <b>VS Code</b>
+                        <span>Code Editor</span>
+                    </div>
+
+                </div>
+
+                <h2>SKILLS</h2>
+
+                <div class="tg">
+
+                    <div class="tech">
+                        <i class="fa-solid fa-palette"></i>
+                        <b>UI/UX Design</b>
+                        <span>Designing User Interfaces</span>
+                    </div>
+
+                    <div class="tech">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <b>Front-End Development</b>
+                        <span>Building Websites</span>
+                    </div>
+
+                    <div class="tech">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <b>Problem Solving</b>
+                        <span>Logical Thinking & Debugging</span>
+                    </div>
+                </div>
+
+                <h2>OTHER SKILLS</h2>
+
+                <div class="tg">
+    
+                    <div class="tech">
+                        <i class="fa-solid fa-plug"></i>
+                        <b>Cable Management</b>
+                        <span>Organizing & Managing Cables</span>
+                    </div>
+
+                    <div class="tech">
+                        <i class="fa-solid fa-headset"></i>
+                        <b>Virtual Assistance</b>
+                        <span>Administrative & Online Support</span>
+                    </div>
+
+                    <div class="tech">
+                        <i class="fa-brands fa-microsoft"></i>
+                        <b>Microsoft Word</b>
+                        <span>Document Creation & Formatting</span>
+                    </div>
+                </div>
             </div>
-
-            <div class="project">
-
-                <div class="pp">
-                    <iframe
-                        src="https://ryanj19.github.io/fries/fries.html"
-                        frameborder="0">
-                    </iframe>
-                </div>
-
-                <b>Lyric Website</b>
-
-                <span>
-                    A website for photos with a background of lyrics
-                </span>
-
-                <div class="project-buttons">
-
-                    <a href="javascript:void(0)" onclick="showDetails('Cupcake ni Bogart', 'My first project')">
-                        <b><i class="fa-solid fa-eye"></i> View Details</b>
-                    </a>
-
-                    <a href="https://github.com/ryanj19/cnb/blob/main/cnb.html" target="_blank">
-                        <b><i class="fa-solid fa-code"></i> View Code</b>
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="project">
-
-                <div class="pp">
-                    <iframe
-                        src="https://ryanj19.github.io/portfolio/portfolio.html"
-                        frameborder="0">
-                    </iframe>
-                </div>
-
-                <b>Personal Portfolio</b>
-
-                <span>
-                    My personal portfolio website
-                </span>
-
-                <div class="project-buttons">
-
-                    <a href="javascript:void(0)" onclick="showDetails('Cupcake ni Bogart', 'My first project')">
-                        <b><i class="fa-solid fa-eye"></i> View Details</b>
-                    </a>
-
-                    <a href="https://github.com/ryanj19/cnb/blob/main/cnb.html" target="_blank">
-                        <b><i class="fa-solid fa-code"></i> View Code</b>
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- PROJECT DETAILS POPUP -->
-<div id="db" class="db">
-
-    <div class="dc">
-
-        <button
-            id="cd"
-            onclick="cd()">
-
-            <i class="fa-solid fa-xmark"></i>
-
-        </button>
-
-        <h2 id="details-title"></h2>
-
-        <p id="details-description"></p>
-
-    </div>
-
-</div>
-
-
-
-
-        <section id="a">
 
         </section>
 
-        <section id="c">
+        <hr>
+
+        <!-- PROJECTS -->
+        
+        <section id="p">
+            <div id="angkol">a</div>
+            <div class="projects">
+
+                <strong>
+                    <i class="fa-solid fa-code"></i>
+                    PROJECTS
+                </strong>
+
+                <div class="pg">
+
+                    <div class="project">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/cnb/cnb.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>Cupcake ni Bogart</b>
+
+                        <span>
+                            My first web development project
+                            <br><br>
+                            This was a performance task given to us in Grade 10 where we were tasked with creating a shop website, such as a coffee shop, cupcake shop, donut shop, or any other type of store. I completed the project in just three days at school, and I received a final score of 100.
+                        </span>
+ 
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                        </div>
+ 
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/hbd/hbd.html" target="_blank">
+                                <b><i class="fa-solid fa-globe"></i>View Website</b>
+                            </a>
+
+                            <a href="https://github.com/ryanj19/cnb/blob/main/cnb.html" target="_blank">
+                                <b><i class="fa-brands fa-github"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/fries/fries.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>Lyric Website</b>
+
+                        <span>
+                            A website for photos with a background of lyrics
+                            <br><br>
+                            This is a website where you can upload any photo and create a background using song lyrics, words, numbers, or anything else that can be typed. It allows you to customize the text around your photo to create a unique and creative design.
+                        </span>
+ 
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                        </div>
+ 
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/fries/fries.html" target="_blank">
+                                <b><i class="fa-solid fa-globe"></i>View Website</b>
+                            </a>
+
+                            <a href="https://github.com/ryanj19/fries/blob/main/fries.html" target="_blank">
+                                <b><i class="fa-brands fa-github"></i> View Code</b>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <div class="project">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/letter/letter.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>Letter website</b>
+
+                        <span>
+                            A website to make a letter for your loved one
+                            <br><br>
+                            This is a simple website where you can write and send a letter to someone you deeply care a. It provides a simple and creative way to share a personal message with someone special.
+                        </span>
+ 
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                            <i class="fa-brands fa-js" title="JavaScript"></i>
+                        </div>
+ 
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/letter/letter.html" target="_blank">
+                                <b><i class="fa-solid fa-globe"></i>View Website</b>
+                            </a>
+
+                            <a href="https://github.com/ryanj19/letter/blob/main/letter.html" target="_blank">
+                                <b><i class="fa-brands fa-github"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                        <div class="project">
+
+                        <div class="cp">
+                            <iframe
+                                src="https://ryanj19.github.io/todolist/todolist.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>To-Do List</b>
+
+                        <span>
+                            A to-do list website designed for mobile devices
+                            <br><br>
+                            This is a website where you can add, organize, and delete tasks. It was created to help keep track of schoolwork and other things that need to be done.
+                        </span>
+ 
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                            <i class="fa-brands fa-js" title="JavaScript"></i>
+                        </div>
+ 
+                        <div class="pb">
+                        
+                            <a href="https://ryanj19.github.io/todolist/todolist.html" target="_blank">
+                                <b><i class="fa-solid fa-globe"></i>View Website</b>
+                            </a>
+                        
+                            <a href="https://github.com/ryanj19/todolist/blob/main/todolist.html" target="_blank">
+                                <b><i class="fa-solid fa-code"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                        <div class="project">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/hbd/hbd.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>Chapter 18</b>
+
+                        <span>
+                            A digital birthday greeting
+                            <br><br>
+                            An interactive birthday website created to celebrate someone's 18th birthday and make their special day more memorable.
+                        </span>
+
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                            <i class="fa-brands fa-js" title="JavaScript"></i>
+                        </div>
+
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/hbd/hbd.html" target="_blank">
+                                    <b><i class="fa-solid fa-globe"></i>View Website</b>
+                                </a>
+
+                            <a href="https://github.com/ryanj19/hbd/blob/main/hbd.html" target="_blank">
+                                <b><i class="fa-solid fa-code"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                        <div class="project">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/frame/frame.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>An interactive tourism website</b>
+
+                        <span>
+                            A tourism website
+                            <br><br>
+                            This was a performance task given to us by Sir Piolo where we were tasked with creating a website a Iceland. It features a list of tourist destinations on the left side, and when a destination is selected, its corresponding webpage is displayed on the right side.
+                        </span>
+
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                        </div>
+
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/frame/frame.html" target="_blank">
+                                    <b><i class="fa-solid fa-globe"></i>View Website</b>
+                                </a>
+
+                            <a href="https://github.com/ryanj19/frame/blob/main/frame.html" target="_blank">
+                                <b><i class="fa-solid fa-code"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                        <div class="project">
+
+                        <div class="cp">
+                            <iframe
+                                src="https://ryanj19.github.io/Jabili/jabili.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>JabiliOrder</b>
+
+                        <span>
+                            Mobile Jollibee Ordering Website
+                            <br><br>
+                            A task given by Sir Piolo where we were tasked with creating a food ordering website for Jollibee. The website allows users to browse menu items, select their meals, add them to an order, and review their order before checkout.
+                        </span>
+
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                        </div>
+
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/Jabili/jabili.html" target="_blank">
+                                    <b><i class="fa-solid fa-globe"></i>View Website</b>
+                                </a>
+
+                            <a href="https://github.com/Jabili/frame/blob/main/jabili.html" target="_blank">
+                                <b><i class="fa-solid fa-code"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                        <div class="project">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/sona/essay.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>SONA Essay</b>
+
+                        <span>
+                            Philippines-Themed SONA Essay Website
+                            <br><br>
+                            A task given by Sir Piolo where we were tasked with adding CSS designs to our SONA essay, or poem. I designed the website with a Philippines-inspired theme and added background audio to complement the presentation.
+                        </span>
+
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                        </div>
+
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/sona/essay.html" target="_blank">
+                                    <b><i class="fa-solid fa-globe"></i>View Website</b>
+                                </a>
+
+                            <a href="https://github.com/sona/frame/blob/main/essay.html" target="_blank">
+                                <b><i class="fa-solid fa-code"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                        <div class="project">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/link/index.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>Linking Website</b>
+
+                        <span>
+                            Multi-Page Navigation Website
+                            <br><br>
+                        A task given by Sir Piolo where we were tasked with creating separate websites connected through clickable links. The project includes a resume page and a list page, with the list website also featuring a link to YouTube. We were also tasked with using different types of HTML lists to organize the content.
+                        </span>
+
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                        </div>
+
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/link/index.html" target="_blank">
+                                    <b><i class="fa-solid fa-globe"></i>View Website</b>
+                                </a>
+
+                            <a href="https://github.com/ryanj19/link/blob/main/index.html" target="_blank">
+                                <b><i class="fa-solid fa-code"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                        <div class="project">
+
+                        <div class="pp1">
+                            <iframe
+                                src="https://ryanj19.github.io/challenge/challengedaw.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+                        
+                        <b>Challenge Website</b>
+
+                        <span>
+                            HTML & CSS Styling Challenge
+                            <br><br>
+                            A web development challenge given by Sir Piolo where we were tasked with styling an existing HTML file using CSS. We were given specific instructions and design requirements that we had to follow while creating our own styled version of the webpage.
+                        </span>
+
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                        </div>
+
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/challenge/challengedaw.html" target="_blank">
+                                    <b><i class="fa-solid fa-globe"></i>View Website</b>
+                                </a>
+
+                            <a href="https://github.com/ryanj19/challenge/blob/main/challengedaw.html" target="_blank">
+                                <b><i class="fa-solid fa-code"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                        <div class="project">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/calc/calc.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+                        
+                        <b>CalcX</b>
+
+                        <span>
+                            Responsive Interactive Calculator with Easter Eggs
+                            <br><br>
+                            A responsive calculator website designed to work well on both desktop and mobile devices. It features functional calculations, a clean interface, and hidden Easter eggs waiting to be discovered. Some Easter eggs include flashing visual effects, so a flash warning is provided for user safety.
+                        </span>
+
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                            <i class="fa-brands fa-js" title="JavaScript"></i>
+                        </div>
+
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/calc/calc.html" target="_blank">
+                                    <b><i class="fa-solid fa-globe"></i>View Website</b>
+                                </a>
+
+                            <a href="https://github.com/ryanj19/calc/blob/main/calc.html" target="_blank">
+                                <b><i class="fa-solid fa-code"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                        <div class="project">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/portfolio/portfolio.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>Personal Portfolio</b>
+
+                        <span>
+                            My personal portfolio website
+                            <br><br>
+                            This was a project where Sir Piolo tasked us with creating our own personal website. I decided to use this opportunity to create a personal portfolio because I had actually planned to make one before but never got around to it.
+                        </span>
+
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                            <i class="fa-brands fa-js" title="JavaScript"></i>
+                        </div>
+
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/portfolio/portfolio.html" target="_blank">
+                                    <b><i class="fa-solid fa-globe"></i>View Website</b>
+                                </a>
+
+                            <a href="https://github.com/ryanj19/portfolio/blob/main/portfolio.html" target="_blank">
+                                <b><i class="fa-solid fa-code"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <!--ABOUT ME PAGE-->
+
+        <section id="a">
+            <div id="angkol">a</div>
+            <div class="a">
+
+                <strong>
+                    <i class="fa-solid fa-user"></i>
+                    ABOUT ME
+                </strong>
+
+                <div class="ac">
+                    <div class="woah">
+                        <b id="ryan"></b><i class="fa-solid fa-circle-check"></i>
+                        <br>
+                        <div class="asd">
+                            <p>Projects<br><span>+1O</span></p>
+                            <p>Graduated<br><span>2O26</span></p>
+                        </div>
+                    </div>
+
+                    <p>
+                        I enjoy creating websites, designing user interfaces, solving programming problems, and exploring new technologies. I am especially interested in front-end web development and UI/UX design because I enjoy turning ideas into websites that are visually appealing, interactive, and easy to use. Most of my projects involve experimenting with HTML, CSS, and JavaScript while learning how different elements of a website work together. I also enjoy challenging myself with new projects, finding creative solutions to problems, and improving my coding skills through practice. Every project I create gives me an opportunity to learn something new, improve my abilities, and become a better developer.
+                    </p>
+
+
+                    <div class="ainfo">
+
+                        <div>
+                            <b>INTERESTS</b>
+                            <i class="fa-brands fa-github"></i> Coding, 
+                            <i class="fa-solid fa-palette"></i> UI/UX, 
+                            <i class="fa-solid fa-gamepad"></i> Gaming, 
+                            <i class="fa-solid fa-calculator"></i> Mathematics, 
+                            <i class="fa-solid fa-chess"></i> Chess,
+                            <i class="fa-solid fa-music"></i> Music & <br>
+                            <i class="fa-solid fa-microchip"></i> Technology
+                        </div>
+
+                        <div>
+                            <b>FOCUS</b>
+                            <i class="fa-solid fa-laptop-code"></i> Front-End Development | 
+                            <i class="fa-solid fa-palette"></i> UI/UX Design
+                        </div>
+
+                        <div>
+                            <b>GOAL</b>
+                            To use my programming skills to create useful projects that help people.
+                        </div>
+
+                        <div>
+                            <b>CURRENTLY</b>
+                            <i class="fa-solid fa-code"></i> Building projects | 
+                            <i class="fa-solid fa-flask"></i> Exploring | 
+                            <i class="fa-solid fa-rocket"></i> Learning
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <hr>
+
+        <!-- CONTACT ME -->
+
+        <section id="c" class="contact">
+            <div id="angkol">a</div>
+            <strong>
+                <i class="fa-solid fa-envelope"></i>
+                CONTACT ME
+            </strong>
+
+            <div class="s">
+
+                <h2>Social Links</h2>
+
+                <div class="sm">
+
+                    <a href="https://github.com/ryanj19" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+                    </a>
+
+                    <a href="https://www.facebook.com/ryanjoshua.bianzon.7" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                        Facebook
+                    </a>
+
+                    <a href="https://www.instagram.com/ryjay._/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                        Instagram
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/ryan-joshua-bianzon-167a11432/" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                        LinkedIn
+                    </a>
+
+                    <a href="javascript:void(0)" onclick="om()">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email
+                    </a>
+
+                </div>
+
+                <button class="mbtn" onclick="om()">
+                    <i class="fa-solid fa-message"></i>  Message Me
+                </button>
+
+            </div>
+
+        <div class="mb" id="mesb">
+
+            <div class="mhead">
+
+                <b>
+                    <i class="fa-solid fa-message"></i> Message Me
+                </b>
+
+                <button class="cm" onclick="cmes()">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+<form class="cform" action="https://example.com" method="POST">
+
+<input type="hidden" name="_subject" value="New Portfolio Message">
+<input type="hidden" name="_captcha" value="false">
+
+<label>Name:</label>
+<input 
+    type="text" 
+    name="name"
+    placeholder="Your name"
+    required
+>
+
+<label>Email:</label>
+<input 
+    type="email" 
+    name="email"
+    placeholder="Your email"
+    required
+>
+
+<label>Message:</label>
+<textarea 
+    name="message"
+    placeholder="Write your message..."
+    required
+></textarea>
+
+<button type="submit">
+    <i class="fa-solid fa-paper-plane"></i>
+    Send Message
+</button>
+
+
+</form>
+
 
         </section>
 
     </main>
-    <script>
+        <script>
 
         // PANG DARK MODE EYYY
 
@@ -1210,7 +2104,8 @@
                         behavior: "smooth"
                     });
 
-                } else {
+                } 
+                else {
 
                     const section = document.getElementById(item.dataset.section);
 
@@ -1256,7 +2151,8 @@
 
             if (window.scrollY > 100) {
                 nav.classList.add("scrolled");
-            } else {
+            } 
+            else {
                 nav.classList.remove("scrolled");
             }
 
@@ -1284,6 +2180,8 @@
             aaObserver.observe(item);
         });
 
+        // HELLO BOI
+
         const hello = document.getElementById("hello");
         const text = " HELLO!";
         let i = 0;
@@ -1298,6 +2196,43 @@
 
         typing();
 
+        const a = document.getElementById("a");
+        const iii = document.getElementById("ryan");
+        const dolo = " Ryan Joshua D. Bianzon";
+
+        let startmo = false;
+
+        const YOOOOHOOOO = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting && !startmo) {
+                    startmo = true;
+                    let ii = 0;
+                    function typemosah() {
+
+                        if (ii < dolo.length) {
+
+                            iii.textContent += dolo[ii];
+                            ii++;
+
+                            setTimeout(typemosah, 100);
+
+                        } else {
+                            setTimeout(() => {
+                                document.querySelector(".fa-circle-check").classList.add("show");
+                            }, 300);
+                        }
+                    }
+                    typemosah();
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        YOOOOHOOOO.observe(a);
+
 
         // ANG GULO NG TECH STACKS BIGLA HAHAHAHAHHA
 
@@ -1307,7 +2242,7 @@
         window.addEventListener("scroll", () => {
             const distance = ts.offsetTop - window.scrollY;
 
-            if (distance > 0 && distance < 700) {
+            if (distance > 0 && distance < 1200) {
 
                 techItems.forEach((item, index) => {
                     const move = distance * 0.3;
@@ -1316,27 +2251,58 @@
                         `translate(${Math.sin(window.scrollY / 300 + index) * 3000}px, ${move}px)`;
                 });
 
-            } else if (distance <= 0) {
+            } 
+            else if (distance <= 0) {
 
                 techItems.forEach(item => {
                     item.style.transform = "translate(0, 0)";
                 });
 
-            }
+            } 
         });
 
-        function showDetails(title, description) {
-            document.getElementById("details-title").textContent = title;
-            document.getElementById("details-description").textContent = description;
+        // PROJECTS PASOK
+        
+        const projectItems = document.querySelectorAll(".project");
+        const projectSection = document.getElementById("p");
 
-            document.getElementById("cd").classList.add("show");
-            document.getElementById("db").classList.add("show");
-        }
+        const projectObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
 
-        function cd() {
-            document.getElementById("db").classList.remove("show");
-            document.getElementById("cd").classList.remove("show");
-        }
+                if (entry.isIntersecting) {
+                    projectItems.forEach(item => {
+                        item.classList.add("angat");
+                    });
+                } 
+
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        projectObserver.observe(projectSection);
+
+// MESSAGE TAB PARNAG MESSENGER LANG AH HAHAHAHHAHA
+
+function om() {
+    const box = document.getElementById("mesb");
+
+    box.classList.remove("tab");
+    box.classList.add("show");
+}
+
+function cmes() {
+    const box = document.getElementById("mesb");
+
+    box.classList.remove("show");
+    box.classList.add("tab");
+}
+
+document.getElementById("mesb").addEventListener("click", function(event) {
+    if (this.classList.contains("tab") && !event.target.closest(".cm")) {
+        om();
+    }
+});
     </script>
 </body>
 </html>
