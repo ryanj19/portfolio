@@ -256,6 +256,11 @@
             font-size: 160px;
             margin-bottom: -25px;
             margin-top: 20px;
+            opacity: 0;
+        }
+
+        #hello.doned {
+            opacity: 1;
         }
 
         #hello::after {
@@ -1255,7 +1260,6 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            gap: 80px;
         }
 
         .malakitoboi {
@@ -1275,11 +1279,26 @@
             font-weight: bold;
             cursor: pointer;
             transition: 0.2s;
+            position: relative; 
+        }
+
+        .malakitoboi button:hover {
+            background-color: var(--pindutanHAHAHA);
+            color: var(--hl);
+            transform: scale(1.03);
+        }
+
+        .malakitoboi button:active {
+            background-color: var(--pindutanHAHAHA);
+            color: var(--hl);
+            transform: scale(0.95);
+            border: 2px solid var(--hl);
         }
 
         .malakitoboi h2 {
             font-size: 140px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
+            line-height: 1;
         }
 
         .malakitoboi small {
@@ -1434,6 +1453,7 @@
             opacity: 0;
             animation: wcText 0.7s ease forwards;
             animation-delay: 0.3s;
+            margin-top: -20px;
         }
 
         .wcc p {
@@ -2382,7 +2402,7 @@
 
             </div>
 
-<div class="cform" action="https://example.com" method="POST">
+<form class="cform" action="https://formsubmit.co/49a543e530a89c7c052a7812350e3fbf" method="POST">
 
 <input type="hidden" name="_subject" value="New Portfolio Message">
 <input type="hidden" name="_captcha" value="false">
@@ -2411,7 +2431,7 @@
 
 </form>
 
-
+</div>
         </section>
 
     </main>
@@ -2544,29 +2564,28 @@
         function magtypekana() {
             typing();
         }
-
+        // SIX SEVEN TAS PANGALAN
+        
         const a = document.getElementById("a");
         const iii = document.getElementById("ryan");
+        const followers = document.getElementById("followers");
         const dolo = " Ryan Joshua D. Bianzon";
+        const sixseven = 6767;
+        const ganokatagal = 4700;
 
         let startmo = false;
 
         const YOOOOHOOOO = new IntersectionObserver((entries) => {
-
             entries.forEach(entry => {
-
                 if (entry.isIntersecting && !startmo) {
                     startmo = true;
+
                     let ii = 0;
                     function typemosah() {
-
                         if (ii < dolo.length) {
-
                             iii.textContent += dolo[ii];
                             ii++;
-
                             setTimeout(typemosah, 100);
-
                         } else {
                             setTimeout(() => {
                                 document.querySelector(".fa-circle-check").classList.add("show");
@@ -2574,6 +2593,18 @@
                         }
                     }
                     typemosah();
+
+                    const startnakasi = performance.now();
+                    function magbilang(kanga) {
+                        const progress = Math.min((kanga - startnakasi) / ganokatagal, 1);
+                        const value = Math.floor(progress * sixseven);
+                        followers.textContent = value.toLocaleString();
+
+                        if (progress < 1) {
+                            requestAnimationFrame(magbilang);
+                        }
+                    }
+                    requestAnimationFrame(magbilang);
                 }
             });
         }, {
@@ -2647,33 +2678,12 @@
             box.classList.add("tab");
         }
 
-        // SIXSEVEEEENNN
-
         document.getElementById("mesb").addEventListener("click", function(event) {
             if (this.classList.contains("tab") && !event.target.closest(".cm")) {
                 om();
             }
         });
-
-        const followers = document.getElementById("followers");
-        const sixseven = 6767;
-        const ganokatagal = 4700;
-
-        let start = 0;
-        const startna = performance.now();
-
-        function magbilang(ganon) {
-            const progress = Math.min((ganon - startna) / ganokatagal, 1);
-            const value = Math.floor(progress * sixseven);
-
-            followers.textContent = value.toLocaleString();
-
-            if (progress < 1) {
-                requestAnimationFrame(magbilang);
-            }
-        }
-        
-        requestAnimationFrame(magbilang);
+    
 
         // WOW ANDAMI PALANG PROJECT NETO HAHAHAHHAHA
 
@@ -2719,33 +2729,35 @@
 
         // SPARKS WOOOOOOOWW
 
-document.addEventListener("click", function(event) {
+        document.addEventListener("click", function(event) {
 
-    for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 10; i++) {
 
-        const spark = document.createElement("div");
-        spark.classList.add("spark");
+                const spark = document.createElement("div");
+                spark.classList.add("spark");
 
-        spark.style.left = event.clientX + "px";
-        spark.style.top = event.clientY + "px";
+                spark.style.left = event.clientX + "px";
+                spark.style.top = event.clientY + "px";
 
-        const angle = Math.random() * Math.PI * 2;
-        const distance = Math.random() * 45 + 15;
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 45 + 15;
 
-        const x = Math.cos(angle) * distance;
-        const y = Math.sin(angle) * distance;
+                const x = Math.cos(angle) * distance;
+                const y = Math.sin(angle) * distance;
 
-        spark.style.setProperty("--spark-x", x + "px");
-        spark.style.setProperty("--spark-y", y + "px");
+                spark.style.setProperty("--spark-x", x + "px");
+                spark.style.setProperty("--spark-y", y + "px");
 
-        document.body.appendChild(spark);
+                document.body.appendChild(spark);
 
-        setTimeout(() => {
-            spark.remove();
-        }, 800);
-    }
+                setTimeout(() => {
+                    spark.remove();
+                }, 800);
+            }
 
-});
+        });
+
+        // WELCOME BOIII
 
         const wc = document.getElementById("wc");
         const nav = document.querySelector("nav");
@@ -2759,13 +2771,14 @@ document.addEventListener("click", function(event) {
         setTimeout(() => {
 
             nav.classList.add("ready");
-            document.body.classList.add("doned");
 
-        }, 3000);
+        }, 3100);
 
         setTimeout(() => {
             magtypekana();
-        }, 3300);
+            document.getElementById("hello").classList.add("doned");
+            document.body.classList.add("doned");
+        }, 3500);
 
 
     </script>
