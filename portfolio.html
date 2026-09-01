@@ -2618,26 +2618,28 @@
 
         const techItems = document.querySelectorAll(".tech");
         const ts = document.getElementById("ts");
+        const tsNavItem = document.querySelector('.nav-item[data-section="ts"]');
 
         window.addEventListener("scroll", () => {
             const distance = ts.offsetTop - window.scrollY;
 
-            if (distance > 0 && distance < 1500) {
-
-                techItems.forEach((item, index) => {
-                    const move = distance * 0.3;
-
-                    item.style.transform =
-                        `translate(${Math.sin(window.scrollY / 300 + index) * 3000}px, ${move}px)`;
-                });
-
-            } 
-            else if (distance <= 0) {
+            if (tsNavItem.classList.contains("active")) {
 
                 techItems.forEach(item => {
                     item.style.transform = "translate(0, 0)";
                 });
-
+            } 
+            else if (distance > 0 && distance < 1500) {
+                techItems.forEach((item, index) => {
+                    const move = distance * 0.3;
+                    item.style.transform =
+                        `translate(${Math.sin(window.scrollY / 300 + index) * 3000}px, ${move}px)`;
+                });
+            } 
+            else if (distance <= 0) {
+                techItems.forEach(item => {
+                    item.style.transform = "translate(0, 0)";
+                });
             } 
         });
 
