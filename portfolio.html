@@ -14,8 +14,13 @@
     <title>Portfolio</title>
     <style>
 
-
         body {
+            overflow: hidden;
+            user-select: none;
+            background-color: var(--background);
+        }
+
+        body.doned {
             margin: 0;
             background-color: var(--background);
             color: var(--text);
@@ -39,6 +44,7 @@
         /* AAAAAAAAA ANG LIWANAGG */
 
         :root {
+            scroll-behavior: smooth;
             --bogart: #4a91dd;
             --background: #d4d6d8;
             --text: black;
@@ -48,8 +54,7 @@
             --pindutanHAHAHA: #fafc9f; 
             --pindutanulit: #77a5d6;
             --hl: #2864a3;
-            scroll-behavior: smooth;
-            --a: #fcfc87;
+            --sc: #FCF55F;
         }
 
         /* DUMILIM ANG PALIGID */
@@ -64,7 +69,7 @@
             --pindutanHAHAHA: white;
             --pindutanulit: black;
             --hl: #111111;
-            --a: white; 
+            --sc: #FFF7A8;
         }
         
         /* NASA PINAKATAAS */
@@ -78,11 +83,23 @@
             background-color: var(--nav);
             padding: 25px;
             box-shadow: 0 0 8px 3px var(--bs);
-        
-            transition:
-                transform 0.8s ease,
-                border-radius 0.8s ease,
-                box-shadow 0.8s ease;
+            transform: scale(0);
+        }
+
+        nav.ready {
+            animation: bogsh 0.6s ease-out forwards;
+        }
+
+        @keyframes bogsh {
+            from {
+                transform: scale(0);
+                border-radius: 100px;
+            }
+
+            to {
+                transform: scale(1);
+                border-radius: 0;
+            }
         }
 
         nav.scrolled {
@@ -259,15 +276,11 @@
         }
 
         #delay2 {
-            animation: eyy 1s forwards;
-            animation-delay: 1.5s;
             opacity: 0;
         }
 
         #delay {
             opacity: 0;
-            animation: eyy 1s forwards;
-            animation-delay: 2s;
             margin-bottom: 10px;
         }
 
@@ -286,8 +299,6 @@
         .hl {
             display: flex;
             margin-top: 70px;
-            animation: eyyy 0.5s ease-out forwards;
-            animation-delay: 1.7s;
             opacity: 0;
         }
 
@@ -337,6 +348,26 @@
             }
         }
 
+        body.doned #delay2 {
+            animation: eyy 1s forwards;
+            animation-delay: 1s;
+        }
+
+        body.doned #delay {
+            animation: eyy 1s forwards;
+            animation-delay: 1.5s;
+        }
+
+        body.doned .hl {
+            animation: eyyy 0.5s ease-out forwards;
+            animation-delay: 2s;
+        }
+
+        body.doned .pfp {
+            animation: maangas 1s forwards;
+            animation-delay: 0.5s;
+        }
+
         #home {
             display: flex;
             align-items: center;
@@ -347,15 +378,20 @@
             position: relative;
             flex: 0 0 auto;
             width: 700px;
-            animation: maangas 1s forwards;
-            animation-delay: 1s;
             opacity: 0;
         }
+
         .pfp img {
             position: relative;
             width: 90%;
             border-radius: 10px;
             z-index: 1;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .pfp img:hover {
+            transform: scale(1.02);
+            filter: brightness(1.05);
         }
 
         .pfp2 {
@@ -809,6 +845,18 @@
             animation: eyyy 1s ease-in forwards;
         }
         
+        .pg.magpakitaka .project:nth-child(n+7) {
+            display: flex;
+        }
+
+        .pg.magpakitaka .project:nth-child(n+7).angat {
+            animation: eyyy 1s ease-in forwards;
+        }
+
+        .project:nth-child(n+7) {
+            display: none;
+        }
+
         .project:nth-child(2) {
             animation-delay: 0.2s;
         }
@@ -831,26 +879,6 @@
 
         .project:nth-child(7) {
             animation-delay: 1.2s;
-        }
-
-        .project:nth-child(8) {
-            animation-delay: 1.4s;
-        }
-
-        .project:nth-child(9) {
-            animation-delay: 1.6s;
-        }
-
-        .project:nth-child(10) {
-            animation-delay: 2.2s;
-        }
-
-        .project:nth-child(11) {
-            animation-delay: 2.4s;
-        }
-
-        .project:nth-child(12) {
-            animation-delay: 2.6s;
         }
 
         /* ////////////////////
@@ -964,11 +992,12 @@
 
         .s {
             background-color: var(--nav);
-            border-left: 8px solid var(--bogart);
+            border-right: 8px solid var(--bogart);
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 4px 12px var(--bs);
-            max-width: 600px;
+            max-width: 300px;
+            flex: 2;
         }
 
         .s h2 {
@@ -984,26 +1013,34 @@
         .sm a {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 15px;
             padding: 15px;
             border: 2px solid var(--bogart);
             border-radius: 10px;
             text-decoration: none;
             color: var(--text);
-            transition: 0.2s;
+            transition:
+                transform 0.15s ease,
+                box-shadow 0.15s ease,
+                background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+            box-shadow: 0 6px 0 var(--bogart);
+            margin-bottom: 10px;
         }
 
         .sm a:hover {
             background-color: var(--pindutanHAHAHA);
             color: var(--hl);
-            transform: translateX(5px);
         }
 
         .sm a:active {
             background-color: var(--pindutanHAHAHA);
-            color: var(--hl);
-            transform: translateX(5px);
-            transform: translateY(5px);
+            color: var(--bogart);
+            transform: translateY(3px);
+            box-shadow: 0 4px 0 var(--hl);
+            border: 2px solid var(--hl);
         }
 
         .sm i {
@@ -1019,21 +1056,25 @@
             border: 2px solid var(--bogart);
             border-radius: 10px;
             background-color: transparent;
-            color: var(--bo);
+            color: var(--text);
             font-family: inherit;
             font-weight: bold;
             cursor: pointer;
             transition: 0.2s;
+            box-shadow: 0 6px 0 var(--bogart);
         }
 
         .mbtn:hover {
+            box-shadow: 0 6px 0 var(--bogart);
             background-color: var(--pindutanHAHAHA);
             color: var(--hl);
-            transform: scale(1.03);
         }
 
         .mbtn:active {
-            transform: scale(0.95);
+            background-color: var(--pindutanHAHAHA);
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 var(--hl);
+            border: 2px solid var(--hl);
         }
 
         .mhead {
@@ -1042,7 +1083,7 @@
             justify-content: space-between;
             padding: 15px 20px;
             background-color: var(--hl);
-            color: var(--a);
+            color: var(--pindutanHAHAHA);
             border-radius: 10px 10px 0 0;
         }
 
@@ -1171,9 +1212,271 @@
             padding-bottom: 0;
         }
 
+        .field {
+            position: relative;
+        }
+
+        .field input,
+        .field textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px;
+            border: 2px solid var(--bogart);
+            border-radius: 8px;
+            background: var(--background);
+            color: var(--text);
+            font-family: inherit;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        .field span {
+            position: absolute;
+            left: 12px;
+            top: 14px;
+            padding: 0 5px;
+            color: var(--text);
+            pointer-events: none;
+            transition: 0.2s ease;
+            background: var(--background);
+            border-radius: 5px;
+        }
+
+        .field input:focus + span,
+        .field input:not(:placeholder-shown) + span,
+        .field textarea:focus + span,
+        .field textarea:not(:placeholder-shown) + span {
+            top: -6px;
+            font-size: 12px;
+            color: var(--hl);
+        }
+
+        .contact2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 80px;
+        }
+
+        .malakitoboi {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .malakitoboi button {
+            padding: 15px 30px;
+            border: 2px solid var(--bogart);
+            border-radius: 10px;
+            background-color: transparent;
+            color: var(--text);
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .malakitoboi h2 {
+            font-size: 140px;
+            margin-bottom: 40px;
+        }
+
+        .malakitoboi small {
+            font-size: 24px;
+            color: var(--text);
+            margin-bottom: -100px;
+        }
+
+        .more {
+            grid-column: 1 / -1;
+            width: 240px;
+            height: 60px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--hover);
+            border-radius: 15px;
+            background-color: var(--pindutanHAHAHA);
+            color: var(--pindutanulit);
+            font-weight: 900;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .more span:nth-child(1) {
+            display: block;
+        }
+
+        .more span:nth-child(2) {
+            display: none;
+        }
+
+        .more.show span:nth-child(1) {
+            display: none;
+        }
+
+        .more.show span:nth-child(2) {
+            display: block;
+        }
+
+        .more:hover {
+            border: 2px solid var(--bogart);
+            background-color: var(--pindutanHAHAHA);
+            color: var(--pindutanulit);
+            transform: scale(1.05);
+        }
+
+        .more:active {
+            background-color: var(--bs);
+            color: var(--hl);
+            transform: scale(0.95);
+        }
+
+
+        /* SPARKS BOGSH */
+
+        .spark {
+            position: fixed;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            background: var(--sc);
+            box-shadow:
+                0 0 6px var(--sc),
+                0 0 12px var(--sc);
+            animation: spark 0.6s ease-out forwards;
+        }
+
+        @keyframes spark {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translate(var(--spark-x), var(--spark-y))
+                    scale(0);
+                opacity: 0;
+            }
+        }
+
+        .hg {
+            display: none;
+        }
+
+        .hg.show {
+            display: flex;
+        }
+
+        .arrow {
+            display: none;
+            position: fixed;
+            right: 20px;
+            top: 47%;
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--bogart);
+            border-radius: 15px;
+            background-color: var(--nav);
+            color: var(--text);
+            font-size: 25px;
+            cursor: pointer;
+            z-index: 1500;
+        }
+
+        .arrow.show {
+            display: block;
+        }
+        
+        /* wc INTRO */
+
+        .wc {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            height: 100%;
+            z-index: 5000;
+            background-color: var(--background);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 1s ease;
+        }
+
+        .wcc {
+            font-family: "JetBrains Mono", monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .wcc span {
+            font-size: 30px;
+            font-weight: bold;
+            opacity: 0;
+            animation: wcText 0.6s ease forwards;
+        }
+
+        .wcc h1 {
+            font-family: "Caveat Brush", cursive;
+            font-size: 110px;
+            margin: 0;
+            opacity: 0;
+            animation: wcText 0.7s ease forwards;
+            animation-delay: 0.3s;
+        }
+
+        .wcc p {
+            font-size: 18px;
+            font-weight: bold;
+            opacity: 0;
+            animation: wcText 0.7s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .wcc b {
+            font-size: 30px;
+            opacity: 0;
+            animation: wcText 0.7s ease forwards;
+            animation-delay: 0.7s;
+        }
+
+        @keyframes wcText {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .wc.hide {
+            transform: translateY(-100%);
+        }
     </style>
 </head>
 <body>
+    <div class="wc" id="wc">
+    <div class="wcc">
+        <span>WELCOME TO MY</span>
+        <h1>PORTFOLIO</h1>
+        <b>RYAN JOSHUA D. BIANZON</b>
+        <p>UI/UX • FRONT-END • PROGRAMMING</p>
+    </div>
+</div>
     <nav>
         <div class="l">
             Portfolio ni Bogart
@@ -1476,109 +1779,42 @@
                     <i class="fa-solid fa-code"></i>
                     PROJECTS
                 </strong>
-
+<button class="arrow" id="arrow">
+    <i class="fa-solid fa-arrow-left"></i>
+</button>
                 <div class="pg">
 
-                    <div class="project">
+                        <div class="project">
 
                         <div class="pp">
                             <iframe
-                                src="https://ryanj19.github.io/cnb/cnb.html"
+                                src="https://ryanj19.github.io/portfolio/portfolio.html"
                                 frameborder="0">
                             </iframe>
                         </div>
 
-                        <b>Cupcake ni Bogart</b>
+                        <b>Personal Portfolio</b>
 
                         <span>
-                            My first web development project
+                            My personal portfolio website
                             <br><br>
-                            This was a performance task given to us in Grade 10 where we were tasked with creating a shop website, such as a coffee shop, cupcake shop, donut shop, or any other type of store. I completed the project in just three days at school, and I received a final score of 100.
+                            This was a project where Sir Piolo tasked us with creating our own personal website. I decided to use this opportunity to create a personal portfolio because I had actually planned to make one before but never got around to it.
                         </span>
- 
-                        <div class="lang">
-                            <i class="fa-brands fa-html5" title="HTML"></i>
-                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
-                        </div>
- 
-                        <div class="pb">
 
-                            <a href="https://ryanj19.github.io/hbd/hbd.html" target="_blank">
-                                <b><i class="fa-solid fa-globe"></i>View Website</b>
-                            </a>
-
-                            <a href="https://github.com/ryanj19/cnb/blob/main/cnb.html" target="_blank">
-                                <b><i class="fa-brands fa-github"></i> View Code</b>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="project">
-
-                        <div class="pp">
-                            <iframe
-                                src="https://ryanj19.github.io/fries/fries.html"
-                                frameborder="0">
-                            </iframe>
-                        </div>
-
-                        <b>Lyric Website</b>
-
-                        <span>
-                            A website for photos with a background of lyrics
-                            <br><br>
-                            This is a website where you can upload any photo and create a background using song lyrics, words, numbers, or anything else that can be typed. It allows you to customize the text around your photo to create a unique and creative design.
-                        </span>
- 
-                        <div class="lang">
-                            <i class="fa-brands fa-html5" title="HTML"></i>
-                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
-                        </div>
- 
-                        <div class="pb">
-
-                            <a href="https://ryanj19.github.io/fries/fries.html" target="_blank">
-                                <b><i class="fa-solid fa-globe"></i>View Website</b>
-                            </a>
-
-                            <a href="https://github.com/ryanj19/fries/blob/main/fries.html" target="_blank">
-                                <b><i class="fa-brands fa-github"></i> View Code</b>
-                            </a>
-
-                        </div>
-                    </div>
-
-                    <div class="project">
-
-                        <div class="pp">
-                            <iframe
-                                src="https://ryanj19.github.io/letter/letter.html"
-                                frameborder="0">
-                            </iframe>
-                        </div>
-
-                        <b>Letter website</b>
-
-                        <span>
-                            A website to make a letter for your loved one
-                            <br><br>
-                            This is a simple website where you can write and send a letter to someone you deeply care a. It provides a simple and creative way to share a personal message with someone special.
-                        </span>
- 
                         <div class="lang">
                             <i class="fa-brands fa-html5" title="HTML"></i>
                             <i class="fa-brands fa-css3-alt" title="CSS"></i>
                             <i class="fa-brands fa-js" title="JavaScript"></i>
                         </div>
- 
+
                         <div class="pb">
 
-                            <a href="https://ryanj19.github.io/letter/letter.html" target="_blank">
-                                <b><i class="fa-solid fa-globe"></i>View Website</b>
-                            </a>
+                            <a href="https://ryanj19.github.io/portfolio/portfolio.html" target="_blank">
+                                    <b><i class="fa-solid fa-globe"></i>View Website</b>
+                                </a>
 
-                            <a href="https://github.com/ryanj19/letter/blob/main/letter.html" target="_blank">
-                                <b><i class="fa-brands fa-github"></i> View Code</b>
+                            <a href="https://github.com/ryanj19/portfolio/blob/main/portfolio.html" target="_blank">
+                                <b><i class="fa-solid fa-code"></i> View Code</b>
                             </a>
                         </div>
                     </div>
@@ -1618,6 +1854,75 @@
                         </div>
                     </div>
 
+                    <div class="project">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/letter/letter.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>Letter website</b>
+
+                        <span>
+                            A website to make a letter for your loved one
+                            <br><br>
+                            This is a simple website where you can write and send a letter to someone you deeply care a. It provides a simple and creative way to share a personal message with someone special.
+                        </span>
+ 
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                            <i class="fa-brands fa-js" title="JavaScript"></i>
+                        </div>
+ 
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/letter/letter.html" target="_blank">
+                                <b><i class="fa-solid fa-globe"></i>View Website</b>
+                            </a>
+
+                            <a href="https://github.com/ryanj19/letter/blob/main/letter.html" target="_blank">
+                                <b><i class="fa-brands fa-github"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="project">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/cnb/cnb.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>Cupcake ni Bogart</b>
+
+                        <span>
+                            My first web development project
+                            <br><br>
+                            This was a performance task given to us in Grade 10 where we were tasked with creating a shop website, such as a coffee shop, cupcake shop, donut shop, or any other type of store. I completed the project in just three days at school, and I received a final score of 100.
+                        </span>
+ 
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                        </div>
+ 
+                        <div class="pb">
+
+                            <a href="https://ryanj19.github.io/hbd/hbd.html" target="_blank">
+                                <b><i class="fa-solid fa-globe"></i>View Website</b>
+                            </a>
+
+                            <a href="https://github.com/ryanj19/cnb/blob/main/cnb.html" target="_blank">
+                                <b><i class="fa-brands fa-github"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
                         <div class="project">
 
                         <div class="pp">
@@ -1648,6 +1953,41 @@
                                 </a>
 
                             <a href="https://github.com/ryanj19/hbd/blob/main/hbd.html" target="_blank">
+                                <b><i class="fa-solid fa-code"></i> View Code</b>
+                            </a>
+                        </div>
+                    </div>
+
+                        <div class="project hg">
+
+                        <div class="pp">
+                            <iframe
+                                src="https://ryanj19.github.io/larooo/redgame.html"
+                                frameborder="0">
+                            </iframe>
+                        </div>
+
+                        <b>Hidden Objects Game</b>
+
+                        <span>
+                            Interactive Hidden-Object Game
+                            <br><br>
+                            A simple hidden objects game where players search for objects hidden throughout the scene. Search through the scene and find the objects hidden throughout the game. A fun little project designed to challenge your observation skills and make the portfolio more interactive.  
+                        </span>
+ 
+                        <div class="lang">
+                            <i class="fa-brands fa-html5" title="HTML"></i>
+                            <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                            <i class="fa-brands fa-js" title="JavaScript"></i>
+                        </div>
+                        
+                        <div class="pb">
+                        
+                            <a href="https://ryanj19.github.io/larooo/redgame.html" target="_blank">
+                                <b><i class="fa-solid fa-play"></i> Play Game</b>
+                            </a>
+                        
+                            <a href="https://github.com/ryanj19/larooo/blob/main/redgame.html" target="_blank">
                                 <b><i class="fa-solid fa-code"></i> View Code</b>
                             </a>
                         </div>
@@ -1725,31 +2065,32 @@
 
                         <div class="pp">
                             <iframe
-                                src="https://ryanj19.github.io/sona/essay.html"
+                                src="https://ryanj19.github.io/fries/fries.html"
                                 frameborder="0">
                             </iframe>
                         </div>
 
-                        <b>SONA Essay</b>
+                        <b>Lyric Website</b>
 
                         <span>
-                            Philippines-Themed SONA Essay Website
+                            A website for photos with a background of lyrics
                             <br><br>
-                            A task given by Sir Piolo where we were tasked with adding CSS designs to our SONA essay, or poem. I designed the website with a Philippines-inspired theme and added background audio to complement the presentation.
+                            This is a website where you can upload any photo and create a background using song lyrics, words, numbers, or anything else that can be typed. It allows you to customize the text around your photo to create a unique and creative design.
                         </span>
 
                         <div class="lang">
                             <i class="fa-brands fa-html5" title="HTML"></i>
                             <i class="fa-brands fa-css3-alt" title="CSS"></i>
+                            <i class="fa-brands fa-js" title="JavaScript"></i>
                         </div>
 
                         <div class="pb">
 
-                            <a href="https://ryanj19.github.io/sona/essay.html" target="_blank">
+                            <a href="https://ryanj19.github.io/fries/fries.html" target="_blank">
                                     <b><i class="fa-solid fa-globe"></i>View Website</b>
                                 </a>
 
-                            <a href="https://github.com/sona/frame/blob/main/essay.html" target="_blank">
+                            <a href="https://github.com/ryanj19/fries/blob/main/fries.html" target="_blank">
                                 <b><i class="fa-solid fa-code"></i> View Code</b>
                             </a>
                         </div>
@@ -1862,37 +2203,40 @@
 
                         <div class="pp">
                             <iframe
-                                src="https://ryanj19.github.io/portfolio/portfolio.html"
+                                src="https://ryanj19.github.io/sona/essay.html"
                                 frameborder="0">
                             </iframe>
                         </div>
 
-                        <b>Personal Portfolio</b>
+                        <b>SONA Essay</b>
 
                         <span>
-                            My personal portfolio website
+                            Philippines-Themed SONA Essay Website
                             <br><br>
-                            This was a project where Sir Piolo tasked us with creating our own personal website. I decided to use this opportunity to create a personal portfolio because I had actually planned to make one before but never got around to it.
+                            A task given by Sir Piolo where we were tasked with adding CSS designs to our SONA essay, or poem. I designed the website with a Philippines-inspired theme and added background audio to complement the presentation.
                         </span>
 
                         <div class="lang">
                             <i class="fa-brands fa-html5" title="HTML"></i>
                             <i class="fa-brands fa-css3-alt" title="CSS"></i>
-                            <i class="fa-brands fa-js" title="JavaScript"></i>
                         </div>
 
                         <div class="pb">
 
-                            <a href="https://ryanj19.github.io/portfolio/portfolio.html" target="_blank">
+                            <a href="https://ryanj19.github.io/sona/essay.html" target="_blank">
                                     <b><i class="fa-solid fa-globe"></i>View Website</b>
                                 </a>
 
-                            <a href="https://github.com/ryanj19/portfolio/blob/main/portfolio.html" target="_blank">
+                            <a href="https://github.com/sona/frame/blob/main/essay.html" target="_blank">
                                 <b><i class="fa-solid fa-code"></i> View Code</b>
                             </a>
                         </div>
                     </div>
 
+                        <div class="more">
+                            <span>VIEW MORE PROJECTS <i class="fa-solid fa-arrow-down"></i></span>
+                            <span>SEE LESS <i class="fa-solid fa-arrow-up"></i></span>
+                        </div>
                 </div>
             </div>
         </section>
@@ -1917,6 +2261,7 @@
                         <div class="asd">
                             <p>Projects<br><span>+1O</span></p>
                             <p>Graduated<br><span>2O26</span></p>
+                            <p>Followers<br><span id="followers">6,767</span></p>
                         </div>
                     </div>
 
@@ -1955,13 +2300,10 @@
                             <i class="fa-solid fa-flask"></i> Exploring | 
                             <i class="fa-solid fa-rocket"></i> Learning
                         </div>
-
                     </div>
 
                 </div>
-
             </div>
-
         </section>
 
         <hr>
@@ -1969,11 +2311,23 @@
         <!-- CONTACT ME -->
 
         <section id="c" class="contact">
+
             <div id="angkol">a</div>
             <strong>
                 <i class="fa-solid fa-envelope"></i>
                 CONTACT ME
             </strong>
+
+            <div class="contact2">
+
+                <div class="malakitoboi">
+                    <small>GET IN TOUCH</small>
+                    <h2>LET'S<br>WORK<br>TOGETHER</h2>
+
+                        <a href="https://ryanj19.github.io/link/resume1.html" target="_blank">
+                            <button>VIEW MY RESUME</button>
+                        </a>
+                </div>
 
             <div class="s">
 
@@ -2028,33 +2382,26 @@
 
             </div>
 
-<form class="cform" action="https://example.com" method="POST">
+<div class="cform" action="https://example.com" method="POST">
 
 <input type="hidden" name="_subject" value="New Portfolio Message">
 <input type="hidden" name="_captcha" value="false">
 
-<label>Name:</label>
-<input 
-    type="text" 
-    name="name"
-    placeholder="Your name"
-    required
->
 
-<label>Email:</label>
-<input 
-    type="email" 
-    name="email"
-    placeholder="Your email"
-    required
->
+<div class="field">
+    <input type="text" name="name" placeholder=" " required>
+    <span>Name</span>
+</div>
 
-<label>Message:</label>
-<textarea 
-    name="message"
-    placeholder="Write your message..."
-    required
-></textarea>
+<div class="field">
+    <input type="email" name="email" placeholder=" " required>
+    <span>Email</span>
+</div>
+
+<div class="field">
+    <textarea name="message" placeholder=" " required></textarea>
+    <span>Message</span>
+</div>
 
 <button type="submit">
     <i class="fa-solid fa-paper-plane"></i>
@@ -2194,7 +2541,9 @@
             }
         }
 
-        typing();
+        function magtypekana() {
+            typing();
+        }
 
         const a = document.getElementById("a");
         const iii = document.getElementById("ryan");
@@ -2242,7 +2591,7 @@
         window.addEventListener("scroll", () => {
             const distance = ts.offsetTop - window.scrollY;
 
-            if (distance > 0 && distance < 1200) {
+            if (distance > 0 && distance < 1500) {
 
                 techItems.forEach((item, index) => {
                     const move = distance * 0.3;
@@ -2282,27 +2631,143 @@
 
         projectObserver.observe(projectSection);
 
-// MESSAGE TAB PARNAG MESSENGER LANG AH HAHAHAHHAHA
+        // MESSAGE TAB PARNAG MESSENGER LANG AH HAHAHAHHAHA
 
-function om() {
-    const box = document.getElementById("mesb");
+        function om() {
+            const box = document.getElementById("mesb");
 
-    box.classList.remove("tab");
-    box.classList.add("show");
-}
+            box.classList.remove("tab");
+            box.classList.add("show");
+        }
 
-function cmes() {
-    const box = document.getElementById("mesb");
+        function cmes() {
+            const box = document.getElementById("mesb");
 
-    box.classList.remove("show");
-    box.classList.add("tab");
-}
+            box.classList.remove("show");
+            box.classList.add("tab");
+        }
 
-document.getElementById("mesb").addEventListener("click", function(event) {
-    if (this.classList.contains("tab") && !event.target.closest(".cm")) {
-        om();
+        // SIXSEVEEEENNN
+
+        document.getElementById("mesb").addEventListener("click", function(event) {
+            if (this.classList.contains("tab") && !event.target.closest(".cm")) {
+                om();
+            }
+        });
+
+        const followers = document.getElementById("followers");
+        const sixseven = 6767;
+        const ganokatagal = 4700;
+
+        let start = 0;
+        const startna = performance.now();
+
+        function magbilang(ganon) {
+            const progress = Math.min((ganon - startna) / ganokatagal, 1);
+            const value = Math.floor(progress * sixseven);
+
+            followers.textContent = value.toLocaleString();
+
+            if (progress < 1) {
+                requestAnimationFrame(magbilang);
+            }
+        }
+        
+        requestAnimationFrame(magbilang);
+
+        // WOW ANDAMI PALANG PROJECT NETO HAHAHAHHAHA
+
+        const more = document.querySelector(".more");
+        const projectGrid = document.querySelector(".pg");
+
+        more.onclick = () => {
+            const show = projectGrid.classList.toggle("magpakitaka");
+            more.classList.toggle("show", show);
+
+            if (show) {
+                document.querySelectorAll(".project:nth-child(n+7)").forEach((p, i) => {
+                    p.classList.add("angat");
+                    p.style.animationDelay = `${i * 0.2}s`;
+                });
+            } else {
+                document.getElementById("p").scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        };
+
+        // WOOOOOW MAGIC    
+
+        const arrow = document.querySelector(".arrow");
+        const projects = document.getElementById("p");
+
+        const arrowObserver = new IntersectionObserver(([entry]) => {
+            arrow.classList.toggle("show", entry.isIntersecting);
+        }, { threshold: 0.2 });
+
+        arrowObserver.observe(projects);
+
+        const hg = document.querySelector(".hg");
+
+        arrow.addEventListener("click", function() {
+            hg.classList.toggle("show");
+
+            if (hg.classList.contains("show")) {
+                arrow.style.display = "none";
+            }
+        });
+
+        // SPARKS WOOOOOOOWW
+
+document.addEventListener("click", function(event) {
+
+    for (let i = 0; i < 10; i++) {
+
+        const spark = document.createElement("div");
+        spark.classList.add("spark");
+
+        spark.style.left = event.clientX + "px";
+        spark.style.top = event.clientY + "px";
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 45 + 15;
+
+        const x = Math.cos(angle) * distance;
+        const y = Math.sin(angle) * distance;
+
+        spark.style.setProperty("--spark-x", x + "px");
+        spark.style.setProperty("--spark-y", y + "px");
+
+        document.body.appendChild(spark);
+
+        setTimeout(() => {
+            spark.remove();
+        }, 800);
     }
+
 });
+
+        const wc = document.getElementById("wc");
+        const nav = document.querySelector("nav");
+
+        setTimeout(() => {
+
+            wc.classList.add("hide");
+
+        }, 2300);
+
+        setTimeout(() => {
+
+            nav.classList.add("ready");
+            document.body.classList.add("doned");
+
+        }, 3000);
+
+        setTimeout(() => {
+            magtypekana();
+        }, 3300);
+
+
     </script>
 </body>
 </html>
