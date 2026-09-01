@@ -1422,14 +1422,23 @@
             left: 0;
             height: 100%;
             z-index: 5000;
-            background-color: var(--background);
-            color: var(--text);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             transition: transform 1s ease;
+            background: linear-gradient(-45deg, var(--bogart), var(--hl), var(--bogart));
+            background-size: 200% 200%;
+            animation: gradientShift 4s ease infinite;
+            color: white;
         }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
 
         .wcc {
             font-family: "JetBrains Mono", monospace;
