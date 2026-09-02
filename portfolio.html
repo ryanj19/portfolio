@@ -102,29 +102,22 @@
             padding: 25px;
             box-shadow: 0 0 10px 3px var(--bs);
             transform: scale(0);
+            border-radius: 100px;
+            transition: transform 0.7s ease, 
+                        border-radius 0.7s ease,
+                        top 0.7s ease;
         }
 
         nav.ready {
-            animation: bogsh 0.6s ease-out forwards;
-        }
-
-        @keyframes bogsh {
-            from {
-                transform: scale(0);
-                border-radius: 100px;
-            }
-
-            to {
-                transform: scale(1);
-                border-radius: 0;
-            }
+            transform: scale(1);
+            border-radius: 0;
         }
 
         nav.scrolled {
             transform: scale(0.9);
             border-radius: 50px;
-            box-shadow: 0 4px 20px 3px var(--bs);
             top: -5px;
+            box-shadow: 0 4px 20px 3px var(--bs);
         }
         
         .r {
@@ -138,7 +131,6 @@
             font-size: 14px;
             align-items: center;
             float: right;
-            flex-wrap: flex;
         }
         
         .nav-item {
@@ -2443,7 +2435,7 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
 
             </div>
 
-<form class="cform" action="https://formsubmit.co/49a543e530a89c7c052a7812350e3fbf" method="POST">
+<form class="cform" id="cform" action="https://formsubmit.co/49a543e530a89c7c052a7812350e3fbf" method="POST">
 
 <input type="hidden" name="_subject" value="New Portfolio Message">
 <input type="hidden" name="_captcha" value="false">
@@ -2516,7 +2508,7 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
 
         window.addEventListener("scroll", () => {
             if (isClickScrolling) return;
-            let current = "0";
+            let current = "home";
             sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
             const activeItem = document.querySelector(`.nav-item[data-section="${current}"]`);
             if (activeItem) moveActive(activeItem);
@@ -2560,12 +2552,8 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
             }
         }
 
-        function magtypekana() {
-            typing();
-        }
         // SIX SEVEN TAS PANGALAN
 
-        const a = document.getElementById("a");
         const iii = document.getElementById("ryan");
         const followers = document.getElementById("followers");
         const dolo = " Ryan Joshua D. Bianzon";
@@ -2610,7 +2598,7 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
             threshold: 0.3
         });
 
-        YOOOOHOOOO.observe(a);
+        YOOOOHOOOO.observe(document.getElementById("a"));
 
 
         // ANG GULO NG TECH STACKS BIGLA HAHAHAHAHHA
@@ -2645,9 +2633,8 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
         // PROJECTS PASOK
         
         const projectItems = document.querySelectorAll(".project");
-        const projectSection = document.getElementById("p");
 
-        const projectObserver = new IntersectionObserver((entries) => {
+        const kitamona = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
 
                 if (entry.isIntersecting) {
@@ -2661,7 +2648,7 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
             threshold: 0.2
         });
 
-        projectObserver.observe(projectSection);
+        kitamona.observe(document.getElementById("p"));
 
         // MESSAGE TAB PARNAG MESSENGER LANG AH HAHAHAHHAHA
 
@@ -2777,7 +2764,7 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
         }, 3100);
 
         setTimeout(() => {
-            magtypekana();
+            typing();
             document.getElementById("hello").classList.add("doned");
             document.body.classList.add("doned");
             wc.style.animation = "none";
@@ -2785,7 +2772,23 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
 
         setTimeout(() => {
             wc.style.display = "none"
-        }, 4000);
+        }, 6000);
+
+        window.addEventListener("scroll", () => {
+            nav.classList.toggle("scrolled", window.scrollY > 50);
+        });
+        // walang pupunta ng formsubmit
+
+        document.getElementById("cform").onsubmit = async e => {
+            e.preventDefault();
+
+            await fetch("https://formsubmit.co/49a543e530a89c7c052a7812350e3fbf", {
+                method: "POST",
+                body: new FormData(e.target)
+            });
+
+            alert("Message sent!");
+        };
     </script>
 </body>
 </html>
