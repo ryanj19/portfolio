@@ -17,18 +17,34 @@
         body {
             overflow: hidden;
             user-select: none;
-            background-color: var(--background);
+            animation: Gradient 10s ease infinite;
+            background: linear-gradient(120deg, #fff9c4, #fcfc75, #f4d03f, #fcfc75, #fff9c4);
+            background-attachment: fixed;
         }
 
         body.doned {
             margin: 0;
-            background-color: var(--background);
+            background: linear-gradient(120deg, #fff9c4, #fcfc75, #f4d03f, #fcfc75, #fff9c4);
             color: var(--text);
             transition: 0.5s;
             -webkit-user-drag: none;
             user-select: none;
             overflow-y: scroll;
             overflow-x: hidden;
+            background-attachment: fixed;
+            animation: Gradient 10s ease infinite;
+        }
+
+        @keyframes Gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+
+        }
+
+        body.dark {
+            background: linear-gradient(120deg, #1c1a10, #111111, #0a0a0a, #111111, #1c1a10);
+            background-attachment: fixed;
         }
 
         ::-webkit-scrollbar {
@@ -45,31 +61,33 @@
 
         :root {
             scroll-behavior: smooth;
-            --bogart: #4a91dd;
-            --background: #d4d6d8;
-            --text: black;
-            --nav: #fcfc75;
-            --hover: #a7bfd8;
-            --bs: #b4b446;
-            --pindutanHAHAHA: #fafc9f; 
-            --pindutanulit: #77a5d6;
-            --hl: #2864a3;
-            --sc: #FCF55F;
+            --bogart: #2864a3;
+            --b: #fcfc75;
+            --text: #1a1508;
+            --nav: #fffef0;
+            --hover: #f4e88a;
+            --bs: #d4c430;
+            --pindutanHAHAHA: #fff9c4;
+            --pindutanulit: #2864a3;
+            --hl: #a3821a;
+            --sc: #fff9c4;
+            --a: #a3821a;
         }
 
-        /* DUMILIM ANG PALIGID */
+                /* DUMILIM ANG PALIGID */
 
         body.dark {
-            --bogart: white;
-            --background: #111111;
+            --bogart: #fcfc75;
+            --b: #111111;
             --text: white;
             --nav: #242424;
             --hover: #424242;
-            --bs: #1c1c1c;
-            --pindutanHAHAHA: white;
+            --bs: #3a3420; 
+            --pindutanHAHAHA: #fcfc75;
             --pindutanulit: black;
-            --hl: #111111;
-            --sc: #FFF7A8;
+            --hl: #fcfc75;
+            --sc: #fcfc75;
+            --a: #1a1508;
         }
         
         /* NASA PINAKATAAS */
@@ -805,7 +823,7 @@
             width: 160px;
             height: 40px;
             box-sizing: border-box;
-            border: 2px solid var(--hl);
+            border: 2px solid var(--bogart);
             border-radius: 8px;
             text-decoration: none;
             color: var(--bogart);
@@ -1042,7 +1060,7 @@
 
         .sm a:active {
             background-color: var(--pindutanHAHAHA);
-            color: var(--bogart);
+            color: var(--hl);
             transform: translateY(3px);
             box-shadow: 0 4px 0 var(--hl);
             border: 2px solid var(--hl);
@@ -1072,7 +1090,7 @@
         .mbtn:hover {
             box-shadow: 0 6px 0 var(--bogart);
             background-color: var(--pindutanHAHAHA);
-            color: var(--hl);
+            color: var(--a);
         }
 
         .mbtn:active {
@@ -1087,8 +1105,8 @@
             align-items: center;
             justify-content: space-between;
             padding: 15px 20px;
-            background-color: var(--hl);
-            color: var(--pindutanHAHAHA);
+            background-color: var(--ha);
+            color: var(--hl);
             border-radius: 10px 10px 0 0;
         }
 
@@ -1129,7 +1147,7 @@
             padding: 12px;
             border: 2px solid var(--bogart);
             border-radius: 8px;
-            background-color: var(--background);
+            background-color: var(--b);
             color: var(--text);
             font-family: inherit;
             outline: none;
@@ -1142,7 +1160,7 @@
         .cform button {
             margin-top: 10px;
             padding: 12px;
-            border: 2px solid var(--hl);
+            border: 2px solid var(--bogart);
             border-radius: 8px;
             background-color: transparent;
             color: var(--text);
@@ -1170,6 +1188,8 @@
             bottom: 0;
             width: 350px;
             background-color: var(--nav);
+            border: 2px solid var(--bogart);
+            border-bottom: none;
             border-radius: 15px 15px 0 0;
             box-shadow: 0 5px 25px var(--bs);
             z-index: 2000;
@@ -1198,12 +1218,10 @@
             cursor: pointer;
         }
 
-        /* Animate the form instead of display:none */
         .mb .cform {
             opacity: 1;
             max-height: 500px;
             overflow: hidden;
-
             transition:
                 opacity 0.3s ease,
                 max-height 0.5s ease,
@@ -1228,7 +1246,7 @@
             padding: 14px;
             border: 2px solid var(--bogart);
             border-radius: 8px;
-            background: var(--background);
+            background: var(--b);
             color: var(--text);
             font-family: inherit;
             outline: none;
@@ -1243,7 +1261,7 @@
             color: var(--text);
             pointer-events: none;
             transition: 0.2s ease;
-            background: var(--background);
+            background: var(--b);
             border-radius: 5px;
         }
 
@@ -1296,7 +1314,7 @@
         }
 
         .malakitoboi h2 {
-            font-size: 140px;
+            font-size: 170px;
             margin-bottom: 20px;
             line-height: 1;
         }
@@ -1428,7 +1446,7 @@
             text-align: center;
             transition: transform 1s ease;
             background: linear-gradient(-45deg, var(--bogart), var(--hl), var(--bogart));
-            background-size: 200% 200%;
+            background-size: 200%;
             animation: gradient 4s ease infinite;
             color: white;
         }
@@ -1436,6 +1454,7 @@
         @keyframes gradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
+            75% { background-position: 0% 70%; }
             100% { background-position: 0% 50%; }
         }
         
@@ -2468,81 +2487,39 @@
 
         const navItems = document.querySelectorAll(".nav-item");
         const activeBg = document.getElementById("active-bg");
+        const sections = document.querySelectorAll("section");
+        let isClickScrolling = false;
 
         function moveActive(item) {
             activeBg.style.left = (item.offsetLeft - 14) + "px";
             activeBg.style.width = item.offsetWidth + "px";
-
             navItems.forEach(nav => nav.classList.remove("active"));
-
             item.classList.add("active");
         }
 
-        const sections = document.querySelectorAll("section");
-
         navItems.forEach(item => {
             item.addEventListener("click", () => {
-
-                if (item.dataset.section === "home") {
-
-                    window.scrollTo({
-                        top: 0,
-                        behavior: "smooth"
-                    });
-
-                } 
-                else {
-
-                    const section = document.getElementById(item.dataset.section);
-
-                    section.scrollIntoView({
-                        behavior: "smooth"
-                    });
-
-                }
-
+                isClickScrolling = true;
+                item.dataset.section === "home"
+                    ? window.scrollTo({ top: 0, behavior: "smooth" })
+                    : document.getElementById(item.dataset.section).scrollIntoView({ behavior: "smooth" });
                 moveActive(item);
+                clearTimeout(window._navScrollTimeout);
+                window._navScrollTimeout = setTimeout(() => isClickScrolling = false, 800);
             });
         });
 
-        moveActive(navItems[0]); 
+        moveActive(navItems[0]);
 
         window.addEventListener("scroll", () => {
-
-            let current = "home";
-
-            sections.forEach(section => {
-
-                const sectionTop = section.offsetTop - 200;
-
-                if (window.scrollY >= sectionTop) {
-                    current = section.id;
-                }
-
-            });
-
-            const activeItem = document.querySelector(
-                `.nav-item[data-section="${current}"]`
-            );
-
-            if (activeItem) {
-                moveActive(activeItem);
-            }
-
+            if (isClickScrolling) return;
+            let current = "0";
+            sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+            const activeItem = document.querySelector(`.nav-item[data-section="${current}"]`);
+            if (activeItem) moveActive(activeItem);
         });
 
-        window.addEventListener("scroll", function() {
 
-            const nav = document.querySelector("nav");
-
-            if (window.scrollY > 100) {
-                nav.classList.add("scrolled");
-            } 
-            else {
-                nav.classList.remove("scrolled");
-            }
-
-        });
 
         // PAGNAGSCROLL MAGAANIMATION
 
