@@ -35,11 +35,10 @@
             animation: Gradient 1s ease infinite;
         }
 
-        @keyframes Gradient {
+        @keyframes bg {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
-
         }
 
         body.dark {
@@ -1442,7 +1441,7 @@
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             75% { background-position: 0% 70%; }
-            100% { background-position: 0% 50%; }
+            100% { background-position: 0% 30%; }
         }
         
 
@@ -1502,9 +1501,27 @@
             transform: translateY(-100%);
         }
 
+        #sent {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.5);
+            z-index: 9999;
+            pointer-events: none;
+        }
+
     </style>
 </head>
 <body>
+    <dotlottie-wc
+        id="sent"
+        src="https://lottie.host/3c44c210-144d-416b-9e6e-2047159d0fd7/aIUEnKa1Ml.lottie"
+        speed="1"
+        mode="forward"
+        style="width:700px;height:auto;">  
+    </dotlottie-wc>
+    
     <div class="wc" id="wc">
     <div class="wcc">
         <span>WELCOME TO MY</span>
@@ -2462,6 +2479,12 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
         </section>
 
     </main>
+
+    // SENT ANIMATION EPEKS UNG EROPLANO WOOOWW
+
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js">
+    </script>
         <script>
 
         // PANG DARK MODE EYYY
@@ -2593,7 +2616,6 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
         });
 
         YOOOOHOOOO.observe(document.getElementById("a"));
-
 
         // ANG GULO NG TECH STACKS BIGLA HAHAHAHAHHA
 
@@ -2771,24 +2793,28 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
         window.addEventListener("scroll", () => {
             nav.classList.toggle("scrolled", window.scrollY > 50);
         });
+
         // walang pupunta ng formsubmit
 
-        document.getElementById("cform").onsubmit = async e => {
-            e.preventDefault();
+document.getElementById("cform").onsubmit = async e => {
+    e.preventDefault();
 
-            const res = await fetch("https://formsubmit.co/ajax/49a543e530a89c7c052a7812350e3fbf", {
-                method: "POST",
-                body: new FormData(e.target),
-                headers: { "Accept": "application/json" }
-            });
+    const res = await fetch("https://formsubmit.co/ajax/49a543e530a89c7c052a7812350e3fbf", {
+        method: "POST",
+        body: new FormData(e.target),
+    });
 
-            if (res.ok) {
-                alert("Message sent!");
-                e.target.reset();
-            } else {
-                alert("Something went wrong.");
-            }
-        };
+    if (res.ok) {
+        const a = document.getElementById("sent");
+        a.style.display = "block";
+        a.dotLottie?.setFrame(0);
+        a.dotLottie?.play();
+        e.target.reset();
+
+        setTimeout(() => a.style.display = "none", 4000);
+    }
+};
+
     </script>
 </body>
 </html>
