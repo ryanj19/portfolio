@@ -17,7 +17,6 @@
         body {
             overflow: hidden;
             user-select: none;
-            animation: Gradient 1s ease infinite;
             background: linear-gradient(120deg, #fff9c4, #fcfc75, #f4d03f, #fcfc75, #fff9c4);
             background-attachment: fixed;
         }
@@ -32,14 +31,8 @@
             overflow-y: scroll;
             overflow-x: hidden;
             background-attachment: fixed;
-            animation: Gradient 1s ease infinite;
         }
 
-        @keyframes bg {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
 
         body.dark {
             background: linear-gradient(120deg, #1c1a10, #111111, #0a0a0a, #111111, #1c1a10);
@@ -1261,7 +1254,6 @@
 
         .contact2 {
             display: flex;
-            justify-content: space-between;
             align-items: flex-start;
         }
 
@@ -1309,6 +1301,15 @@
             font-size: 24px;
             color: var(--text);
             margin-bottom: -120px;
+        }
+
+        footer {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            margin-top: 38%;
         }
 
         .more {
@@ -1511,6 +1512,8 @@
             pointer-events: none;
         }
 
+        
+
     </style>
 </head>
 <body>
@@ -1586,8 +1589,7 @@
                 <h1 id="hello"></h1>
                 <p id="typing"></p>
                 <p id="delay2">
-I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front-end web development and UI/UX design. I enjoy creating websites that are creative, user-friendly, and visually appealing.
-
+                    I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front-end web development and UI/UX design. I enjoy creating websites that are creative, user-friendly, and visually appealing.
                 </p>
 
                 <p id="delay">
@@ -2315,6 +2317,7 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
                             <p>Projects<br><span>+1O</span></p>
                             <p>Graduated<br><span>2O26</span></p>
                             <p>Followers<br><span id="followers">6,767</span></p>
+                            <p>Ideas<br><span id="madami"></span></p>
                         </div>
                     </div>
 
@@ -2390,9 +2393,10 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
                         <a href="https://ryanj19.github.io/link/resume1.html" target="_blank">
                             <button>VIEW MY RESUME</button>
                         </a>
-                        <div id="angkol">a</div>
                 </div>
 
+
+                
             <div class="s">
 
                 <h2>Social Links</h2>
@@ -2431,6 +2435,8 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
                 </button>
 
             </div>
+
+                <footer>© 2026 Ryan Joshua D. Bianzon. All rights reserved.</footer>
 
         <div class="mb" id="mesb">
 
@@ -2480,7 +2486,7 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
 
     </main>
 
-    // SENT ANIMATION EPEKS UNG EROPLANO WOOOWW
+<!--SENT ANIMATION WOWOWWOOWOWOW-->
 
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js">
@@ -2572,6 +2578,7 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
         // SIX SEVEN TAS PANGALAN
 
         const iii = document.getElementById("ryan");
+        const ideas = document.getElementById("madami");
         const followers = document.getElementById("followers");
         const dolo = " Ryan Joshua D. Bianzon";
         const sixseven = 6767;
@@ -2609,6 +2616,15 @@ I'm Ryan Joshua D. Bianzon, a Computer Programming student specializing in front
                         }
                     }
                     requestAnimationFrame(magbilang);
+
+                    const startnaideas = performance.now();
+
+                    function bilangideas(kanga) {
+                        ideas.textContent = Math.floor((kanga - startnaideas) / 10).toLocaleString();
+                        requestAnimationFrame(bilangideas);
+                    }
+
+                    requestAnimationFrame(bilangideas);
                 }
             });
         }, {
