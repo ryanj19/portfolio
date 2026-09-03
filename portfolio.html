@@ -116,13 +116,12 @@
             position: relative;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             display: flex;
-            gap: 70px;
-            margin-right: 40px;
+            gap: 30px;
             margin-top: -42px;
             font-weight: 900;
             font-size: 14px;
-            align-items: center;
             float: right;
+            align-items: center;
         }
         
         .nav-item {
@@ -635,7 +634,7 @@
 
         #angkol {
             opacity: 0;
-            height: 100px;
+            margin: 70px;
         }
 
         #ts {
@@ -909,7 +908,7 @@
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 4px 12px var(--bs);
-            max-height: 600px;
+            max-height: none;
         }
 
         .asd {
@@ -968,7 +967,13 @@
             color: var(--text);
         }
 
-        .ainfo div {
+        .ainfo h2 {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin: 30px 0 0;
+        }
+
+        .ainfo div:not(.chooseyourcharacter) {
             padding: 20px;
             border: 2px solid var(--bogart);
             border-radius: 10px;
@@ -988,6 +993,7 @@
         .contact {
             margin-bottom: 100px;
             font-family: "JetBrains Mono", monospace;
+            overflow-x: hidden;
         }
 
         .s {
@@ -1309,7 +1315,8 @@
             transform: translateX(-50%);
             width: 100%;
             text-align: center;
-            margin-top: 38%;
+            margin-top: 27%;
+            margin-bottom: 10%;
         }
 
         .more {
@@ -1432,9 +1439,9 @@
             justify-content: center;
             text-align: center;
             transition: transform 1s ease;
-            background: linear-gradient(-45deg, var(--bogart), var(--hl), var(--bogart));
+            background: linear-gradient(90deg, #2864a3, #fcfc75, #2864a3);
             background-size: 200%;
-            animation: gradient 4s ease infinite;
+            animation: gradient 5s ease infinite;
             color: white;
         }
         
@@ -1512,8 +1519,129 @@
             pointer-events: none;
         }
 
-        
+        .chooseyourcharacter {
+            grid-column: 1 / -1;
+            display: flex;
+            gap: 25px;
+            width: 100%;
+            overflow: hidden;
+            padding: 30px 10px;
+            border: 2px solid var(--bogart);
+            border-radius: 15px;
+        }
 
+        .fcard {
+            position: relative;
+            margin-right: 10px;
+            flex: 0 0 300px;
+            height: 300px;
+            border: 2px solid var(--bogart);
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: var(--nav);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+        }
+
+        .fcard img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .fcard:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px var(--bs);
+        }
+
+        .finfo {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            transform: translateY(100%);
+            transition: 0.4s ease;
+        }
+
+        .fcard:hover .finfo {
+            transform: translateY(0);
+            filter: brightness(1.1);
+        }
+
+        .finfo h3 {
+            margin: 0 0 8px;
+            font-size: 20px;
+        }
+
+        .finfo p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+
+        .a h2 {
+            font-family: "JetBrains Mono", monospace;
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            text-align: center;
+            padding: 80px 10%;
+        }
+
+        .gallery h2 {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .gallery p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .ggrid {
+            width: 90%;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            padding: 20px;
+            background-color: var(--nav);
+            border-radius: 30px;
+            margin: 0 auto;
+        }
+
+        .ggrid img {
+            width: auto;
+            height: 300px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .ggrid img:hover {
+            transform: scale(1.05);
+        }
+
+        .ggrid img:nth-child(14) {
+            grid-column: span 2;
+        }
+
+        .ggrid img:nth-child(16) {
+            grid-column: span 2;
+        }
+
+        .ggrid img:nth-child(18) {
+            grid-column: span 2;
+        }
+
+        .ggrid img:nth-child(20) {
+            grid-column: span 2;
+        }
     </style>
 </head>
 <body>
@@ -1559,6 +1687,10 @@
 
         <div class="nav-item" data-section="a">
             <i class="fa-solid fa-user"></i>ABOUT ME
+        </div>
+
+        <div class="nav-item" data-section="g">
+            <i class="fa-solid fa-image"></i>GALLERY
         </div>
 
         <div class="nav-item" data-section="c">
@@ -2366,14 +2498,152 @@
                             <i class="fa-solid fa-flask"></i> Exploring | 
                             <i class="fa-solid fa-rocket"></i> Leveling up!
                         </div>
-                    </div>
 
+                        <h2>My Friends</h2>
+
+                        <div class="chooseyourcharacter" id="chooseyourchar">
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/enrico.john.jerusalem.2025#', '_blank')">
+                                    <img src="./tomboy.jpg" alt="Friend 1">
+                                    <div class="finfo">
+                                        <h3>Enrico</h3>
+                                        <p>Bogart 1 ayaw maangatan tamad #tomboy pay2win 67</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/vrenth.lumandas.2024', '_blank')">
+                                    <img src="./vrenth.jpg" alt="Friend 2">
+                                    <div class="finfo">
+                                        <h3>Vrenth</h3>
+                                        <p>Vice President na palo</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/chris.salditos.2025', '_blank')">
+                                    <img src="./salditos.jpg" alt="Friend 3">
+                                    <div class="finfo">
+                                        <h3>Salditoto</h3>
+                                        <p>Palo magcode malakas tama lagi HAHAHAHA</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/profile.php?id=61581486582522', '_blank')">
+                                    <img src="./andrea.jpg" alt="Friend 4">
+                                    <div class="finfo">
+                                        <h3>Andrea</h3>
+                                        <p>Malande takot sa ...</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/irah.rang', '_blank')">
+                                    <img src="./princess.jpg" alt="Friend 5">
+                                    <div class="finfo">
+                                        <h3>Ate Princess</h3>
+                                        <p>Bday girl 17 na sya malapit na makulong. Hindi marunong humindi</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/profile.php?id=61575448817899', '_blank')">
+                                    <img src="./emily.jpg" alt="Friend 6">
+                                    <div class="finfo">
+                                        <h3>Emily</h3>
+                                        <p>Lahat na tinawanan jusko lahat din sinisipa mayaman sobra</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/aaronjasper.frias.54#', '_blank')">
+                                    <img src="./aaron.jpg" alt="Friend 7">
+                                    <div class="finfo">
+                                        <h3>ey ey ron jasper</h3>
+                                        <p>Madaming alam sa lahat ng bagay gymrat 3</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/kai.823121', '_blank')">
+                                    <img src="./vince.jpg" alt="Friend 8">
+                                    <div class="finfo">
+                                        <h3>Vince</h3>
+                                        <p>Bogart 2 Mayaman nakawan nyo to gymrat 1</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/vincent.caritan.7', '_blank')">
+                                    <img src="./cent.png" alt="Friend 9">
+                                    <div class="finfo">
+                                        <h3>Cent</h3>
+                                        <p>Kurakot dating Narra itlog gymrat 2</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/ah.switcher', '_blank')">
+                                    <img src="./james.jpg" alt="Friend 10">
+                                    <div class="finfo">
+                                        <h3>Lebron James</h3>
+                                        <p>Palo magbasketball laging may highlights malakas tama HAHAHAHA</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/jorge.liam.delacruziso', '_blank')">
+                                    <img src="./iso.jpg" alt="Friend 11">
+                                    <div class="finfo">
+                                        <h3>Iso</h3>
+                                        <p>Palo maggojo at magmukbang ng chocolate idol si Rene</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/keulloeee', '_blank')">
+                                    <img src="./kurt.jpg" alt="Friend 11">
+                                    <div class="finfo">
+                                        <h3>Kurt</h3>
+                                        <p>Kaibigan ni leslie madaming source magaling magedit</p>
+                                    </div>
+                                </div>
+
+                                <div class="fcard" onclick="window.open('https://www.facebook.com/smnBleuuu', '_blank')">
+                                    <img src="https://scontent.fmnl8-6.fna.fbcdn.net/v/t39.30808-6/739012838_122121587823280420_1216197247395945666_n.jpg?stp=dst-jpg_tt6&cstp=mx1500x1500&ctp=s1500x1500&_nc_cat=102&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEnxy9hCyU4BWrsEqkOUSOYFBE7BqSdpm4UETsGpJ2mbv3TLfvNhm73iSt-yPiWbihJ54YQXbHdV1TjaFassds1&_nc_ohc=u4Sj3bKJI1IQ7kNvwH8oMJE&_nc_oc=Adq6KZu9FyYIh8fi9HR8YyognlKMH_qL75AOaBtISrt7aeWk2Qp9ZRr_T75ujUphOOikeG6y_h-gz7gvlaN4a0tu&_nc_zt=23&_nc_ht=scontent.fmnl8-6.fna&_nc_gid=vkBzJG2F7MFGjyBswcjBiw&_nc_ss=7b2a8&oh=00_AQL67l5EFyWO1y8g1JXmtfPHrVRXqkdjwtLxb8nh6ECIkw&oe=6A9F7B37" alt="Friend 12">
+                                    <div class="finfo">
+                                        <h3>asli</h3>
+                                        <p>Best tagabenta</p>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <hr>
 
+        <section class="gallery" id="g">
+            <h2>My Gallery</h2>
+            <p>Some moments, achievements, and memories.</p>
+
+                <div class="ggrid">
+                        <img src="./mayapis2.jpg">
+                        <img src="./mayapis.jpg">
+                        <img src="./trophy.jpg">
+                        <img src="./completer.jpg">
+                        <img src="./mayapis4.jpg">
+                        <img src="./sre2.jpg">
+                        <img src="./mayapiss.jpg">
+                        <img src="./mayapis3.jpg">
+                        <img src="./sre.jpg">
+                        <img src="./cof.jpg">
+                        <img src="./cof2.jpg">
+                        <img src="./pagudpud2.jpg">
+                        <img src="./pagudpud.jpg">
+                        <img src="./mythic.jpg">
+                        <img src="./cinee.jpg">
+                        <img src="./immo.jpg">
+                        <img src="./cine2.jpg">
+                        <img src="./ph.jpg">
+                        <img src="./cine3.jpg">
+                        <img src="./afk.jpg">
+                </div>
+        </section>
+
+        <hr>
         <!-- CONTACT ME -->
 
         <section id="c" class="contact">
@@ -2436,8 +2706,12 @@
 
             </div>
 
-                <footer>© 2026 Ryan Joshua D. Bianzon. All rights reserved.</footer>
-
+                <footer><br>
+                    <div id="angkol">a</div>
+                    © 2026 Ryan Joshua D. Bianzon. All rights reserved.
+                    <div id="angkol">a</div>
+                </footer>
+                    
         <div class="mb" id="mesb">
 
             <div class="mhead">
@@ -2452,36 +2726,36 @@
 
             </div>
 
-<form class="cform" id="cform" action="https://formsubmit.co/49a543e530a89c7c052a7812350e3fbf" method="POST">
+                <form class="cform" id="cform" action="https://formsubmit.co/49a543e530a89c7c052a7812350e3fbf" method="POST">
 
-<input type="hidden" name="_subject" value="New Portfolio Message">
-<input type="hidden" name="_captcha" value="false">
-<input type="hidden" name="_next" value="https://ryanj19.github.io/portfolio/portfolio.html">
+                    <input type="hidden" name="_subject" value="New Portfolio Message">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://ryanj19.github.io/portfolio/portfolio.html">
 
-<div class="field">
-    <input type="text" name="name" placeholder=" " required>
-    <span>Name</span>
-</div>
+                    <div class="field">
+                        <input type="text" name="name" placeholder=" " required>
+                        <span>Name</span>
+                    </div>
 
-<div class="field">
-    <input type="email" name="email" placeholder=" " required>
-    <span>Email</span>
-</div>
+                    <div class="field">
+                        <input type="email" name="email" placeholder=" " required>
+                        <span>Email</span>
+                    </div>
 
-<div class="field">
-    <textarea name="message" placeholder=" " required></textarea>
-    <span>Message</span>
-</div>
+                    <div class="field">
+                        <textarea name="message" placeholder=" " required></textarea>
+                        <span>Message</span>
+                    </div>
 
-<button type="submit">
-    <i class="fa-solid fa-paper-plane"></i>
-    Send Message
-</button>
+                    <button type="submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Send Message
+                    </button>
 
 
-</form>
+                </form>
 
-</div>
+            </div>
         </section>
 
     </main>
@@ -2536,8 +2810,6 @@
             const activeItem = document.querySelector(`.nav-item[data-section="${current}"]`);
             if (activeItem) moveActive(activeItem);
         });
-
-
 
         // PAGNAGSCROLL MAGAANIMATION
 
@@ -2812,24 +3084,83 @@
 
         // walang pupunta ng formsubmit
 
-document.getElementById("cform").onsubmit = async e => {
-    e.preventDefault();
+        document.getElementById("cform").onsubmit = async e => {
+            e.preventDefault();
 
-    const res = await fetch("https://formsubmit.co/ajax/49a543e530a89c7c052a7812350e3fbf", {
-        method: "POST",
-        body: new FormData(e.target),
-    });
+            const res = await fetch("https://formsubmit.co/ajax/49a543e530a89c7c052a7812350e3fbf", {
+                method: "POST",
+                body: new FormData(e.target),
+            });
 
-    if (res.ok) {
-        const a = document.getElementById("sent");
-        a.style.display = "block";
-        a.dotLottie?.setFrame(0);
-        a.dotLottie?.play();
-        e.target.reset();
+            if (res.ok) {
+                const a = document.getElementById("sent");
+                a.style.display = "block";
+                a.dotLottie?.setFrame(0);
+                a.dotLottie?.play();
+                e.target.reset();
 
-        setTimeout(() => a.style.display = "none", 4000);
-    }
-};
+                setTimeout(() => a.style.display = "none", 4000);
+            }
+        };
+
+        // NA PARA BANG CHOOSE YOUR CHARACTER HAHAHAHHAHAHA
+
+        const carousel = document.getElementById("chooseyourchar");
+
+        carousel.innerHTML += carousel.innerHTML;
+
+        let speed = 5;
+        let paused = false;
+        let scrolling = false;
+
+        function galaw() {
+            if (!paused && !scrolling) {
+                carousel.scrollLeft += speed;
+
+                if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+                    carousel.scrollLeft -= carousel.scrollWidth / 2;
+                }
+            }
+
+            requestAnimationFrame(galaw);
+        }
+
+        galaw();
+
+        carousel.addEventListener("mouseenter", () => {
+            paused = true;
+        });
+        carousel.addEventListener("mouseleave", () => {
+            paused = false;
+        });
+
+        carousel.addEventListener("wheel", e => {
+            e.preventDefault();
+
+            if (scrolling) return;
+
+            scrolling = true;
+
+            const card = carousel.querySelector(".fcard");
+            const move = card.offsetWidth + 25;
+
+            carousel.scrollBy({
+                left: e.deltaY > 0 ? move : -move,
+                behavior: "smooth"
+            });
+
+            setTimeout(() => {
+                if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+                    carousel.scrollLeft -= carousel.scrollWidth / 2;
+                }
+
+                if (carousel.scrollLeft <= 0) {
+                    carousel.scrollLeft += carousel.scrollWidth / 2;
+                }
+
+                scrolling = false;
+            }, 400);
+        }, { passive: false });
 
     </script>
 </body>
