@@ -1267,9 +1267,12 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            position: relative;
+            z-index: 2;
         }
 
-        .malakitoboi button {
+        .malakitoboi a {
+            position: relative;
             padding: 15px 30px;
             border: 2px solid var(--bogart);
             border-radius: 10px;
@@ -1280,15 +1283,16 @@
             cursor: pointer;
             transition: 0.2s;
             margin-top: 150px;
+            margin-left: 10px;
         }
 
-        .malakitoboi button:hover {
+        .malakitoboi a:hover {
             background-color: var(--pindutanHAHAHA);
             color: var(--a);
             transform: scale(1.03);
         }
 
-        .malakitoboi button:active {
+        .malakitoboi a:active {
             background-color: var(--pindutanHAHAHA);
             color: var(--a);
             transform: scale(0.95);
@@ -2659,7 +2663,7 @@
                     <h2>LET'S<br>WORK<br>TOGETHER</h2>
                     <small>Looking for problems worth solving.</small>
                         <a href="https://ryanj19.github.io/link/resume1.html" target="_blank">
-                            <button>VIEW MY RESUME</button>
+                            VIEW MY RESUME
                         </a>
                 </div>
 
@@ -3107,7 +3111,7 @@
 
         carousel.innerHTML += carousel.innerHTML;
 
-        let speed = 5;
+        let speed = 6;
         let paused = false;
         let scrolling = false;
 
