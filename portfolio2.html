@@ -1629,31 +1629,83 @@
             transform: scale(1.05);
         }
 
-        .ggrid img:nth-child(14) {
-            grid-column: span 2;
+        .gcard {
+            cursor: pointer;
         }
 
-        .ggrid img:nth-child(16) {
-            grid-column: span 2;
+        .gcard img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: 0.3s;
         }
 
-        .ggrid img:nth-child(18) {
-            grid-column: span 2;
+        .gcard:hover img {
+            transform: scale(1.06);
         }
 
-        .ggrid img:nth-child(20) {
-            grid-column: span 2;
+        .glightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 5000;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .glightbox.show {
+            display: flex;
+        }
+
+        .glightbox img {
+            max-width: 65%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .gcontext {
+            display: none;
+        }
+
+        .ginfo {
+            width: 300px;
+            color: white;
+        }
+
+        .ginfo h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .ginfo p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .gclose {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            font-size: 40px;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <dotlottie-wc
-        id="sent"
-        src="https://lottie.host/3c44c210-144d-416b-9e6e-2047159d0fd7/aIUEnKa1Ml.lottie"
-        speed="1"
-        mode="forward"
-        style="width:700px;height:auto;">  
-    </dotlottie-wc>
+    <div class="glightbox" id="glightbox">
+    <span class="gclose" onclick="closeGallery()"></span>
+    <img id="gimage">
+    <div class="ginfo">
+        <h2 id="gtitle"></h2>
+        <p id="gdescription"></p>
+    </div>
+    </div>
+    <dotlottie-wc id="sent" src="https://lottie.host/3c44c210-144d-416b-9e6e-2047159d0fd7/aIUEnKa1Ml.lottie" speed="1" mode="forward" style="width:700px;height:auto;"></dotlottie-wc>
     
     <div class="wc" id="wc">
     <div class="wcc">
@@ -2622,26 +2674,89 @@
             <p>Some moments, achievements, and memories.</p>
 
                 <div class="ggrid">
-                        <img src="./mayapis2.jpg">
-                        <img src="./mayapis.jpg">
-                        <img src="./trophy.jpg">
-                        <img src="./completer.jpg">
+                    <div class="gcard" onclick="openGallery('./mayapis4.jpg', '1ST PLACEEE', 'A Festival Dance competition in grade 9 where we got placed 1st')">
                         <img src="./mayapis4.jpg">
-                        <img src="./sre2.jpg">
-                        <img src="./mayapiss.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./mayapis.jpg', 'CHAMPIONNN', 'A Speech Choir competition in grade 9 where we won the championship')">
+                        <img src="./mayapis.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./mayapis3.jpg', '1ST PLACEEE', 'A Festival Dance competition in grade 9 where we got placed 1st')">
                         <img src="./mayapis3.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./mayapiss.jpg', 'Mayapis', 'The recognition of mayapis')">
+                        <img src="./mayapiss.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./trophy.jpg', 'The Trophy', 'This is the trophy we earned from the Speech Choir competition')">
+                        <img src="./trophy.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./mayapis2.jpg', 'The Mayapis Yearbook', 'The book that contained most of the memories in our grade 9 school year')">
+                        <img src="./mayapis2.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./sre2.jpg', 'SRE Moving up', 'The picture we took in moving up with my friends')">
+                        <img src="./sre2.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./rain.jpg', 'Kambal', 'Humpty Dumpty')">
+                        <img src="./rain.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./sre.jpg', 'SRE Moving up', 'The picture we took in moving up with my friends')">
                         <img src="./sre.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./cof.jpg', 'Grade 9 Recognition', 'A picture we took in grade 9 recognition')">
                         <img src="./cof.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./cof3.jpg', 'Mcdo', 'The time we used to eat mcdo every week')">
+                        <img src="./cof3.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./cof2.jpg', 'Moving up', 'We tried to recreate the picture we took from grade 9 recognition this is from the moving up')">
                         <img src="./cof2.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./pagudpud2.jpg', 'Pagudpud, Ilocos Norte', 'Our trip to Ilocos Norte')">
                         <img src="./pagudpud2.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./pagudpud.jpg', 'Pagudpud, Ilocos Norte', 'We went to the beach in Pagudpud')">
                         <img src="./pagudpud.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./mythic.jpg', 'Mythic', 'The time I reached mythic the first time panahon pa ng dinosaur')">
                         <img src="./mythic.jpg">
-                        <img src="./cinee.jpg">
-                        <img src="./immo.jpg">
-                        <img src="./cine2.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./ph.jpg', 'Top 99 Philippines', 'The time I got top 99 Philippines in Carmilla')">
                         <img src="./ph.jpg">
-                        <img src="./cine3.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./immo.jpg', 'Immortal', 'The first time I reached Mythical Immortal')">
+                        <img src="./immo.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./afk.jpg', 'AFK', 'Nagmml tas biglang may pumasok na teacher.')">
                         <img src="./afk.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./cine.jpg', 'Insidious', 'Before')">
+                        <img src="./cine.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./cine3.jpg', 'Insidious', 'The time we went to the cinema')">
+                        <img src="./cine3.jpg">
+                    </div>
+
+                    <div class="gcard" onclick="openGallery('./afk.jpg', 'Insidious', 'and after nabusog sa popcorn')">
+                        <img src="./cine2.jpg">
+                    </div>
                 </div>
         </section>
 
@@ -3164,6 +3279,20 @@
             }, 400);
         }, { passive: false });
 
+        // MAGOPEN NG MALAKI GALLERY
+
+        function openGallery(img, title, text) {
+            document.getElementById("gimage").src = img;
+            document.getElementById("gtitle").textContent = title;
+            document.getElementById("gdescription").textContent = text;
+            document.getElementById("glightbox").classList.add("show");
+        }
+
+        function closeGallery() {
+            document.getElementById("glightbox").classList.remove("show");
+        }
+
+        
     </script>
 </body>
 </html>
